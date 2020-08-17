@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
   window.signup = signup;
   // test
+  
   const root = document.getElementById('root');
   ReactDOM.render(<div>Welcome to MapMyJog!</div>, root);
 });
