@@ -1,0 +1,41 @@
+.form-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.session-form {
+  // align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form-btn {
+  // width: 100%;
+  justify-content: center;
+  background-color: lightgreen;
+  padding: 10px;
+  color: white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.session-form input {
+  box-sizing: border-box;
+  border: lightgray 1px solid;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%
+}
+
+.session-form-radio {
+  width: 40%;
+  border: 1px lightgray solid
+}
+
+.errors-list {
+  color: red
+}

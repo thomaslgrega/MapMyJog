@@ -7,10 +7,15 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      email: ''
+      email: '',
+      fname: '',
+      lname: '',
+      dateOfBirth: '',
+      gender: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.renderSignUpInputs = this.renderSignUpInputs.bind(this)
   }
 
   handleSubmit(e) {
@@ -24,31 +29,79 @@ class SessionForm extends React.Component {
     }
   }
 
-  render() {
-    let emailSignUpInput = null;
+  renderSignUpInputs() {
+    let SignUpInputs = null;
     if (this.props.formType === 'signup') {
-      emailSignUpInput = <label>Email:
-        <input type="text" onChange={this.update('email')} value={this.state.email} />
-      </label>
-    };
+      SignUpInputs = (
+        <div>
+          <input type="text"
+            onChange={this.update('email')}
+            value={this.state.email}
+            placeholder='Email'
+            className='session-form-inputs'
+          />
+          <input type="text"
+            onChange={this.update('fname')}
+            value={this.state.fname}
+            placeholder='First Name'
+            className='session-form-inputs'
+          />
+          <input type="text"
+            onChange={this.update('lname')}
+            value={this.state.lname}
+            placeholder='Last Name'
+            className='session-form-inputs'
+          />
+          <input type="date"
+            onChange={this.update('date')}
+            value={this.state.date}
+            className='session-form-inputs'
+          />
+          <label>Male
+            <input type="radio"
+              onChange={this.update('gender')}
+              value='male'
+              checked={this.state.gender === 'male'}
+              className='session-form-radio'
+            />
+          </label>
+          <label>Female
+            <input type="radio"
+              onChange={this.update('gender')}
+              value='female'
+              checked={this.state.gender === 'female'}
+              className='session-form-radio'
+            />
+          </label> 
+        </div>
+      )
+    }
+    return SignUpInputs;
+  }
 
+  render() {
     return (
-      <div>
-        <h1>{this.props.formType} page!</h1>
+      <div className="form-container">
         {this.props.navLink}
-        <ul>
+        <ul className="errors-list">
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>Username:
-            <input type="text" onChange={this.update('username')} value={this.state.username}/>
-          </label>
-          {emailSignUpInput}
-          <label>Password:
-            <input type="password" onChange={this.update('password')} value={this.state.password} />
-          </label>
-          <button>{this.props.formType}</button>
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <input type="text" 
+            onChange={this.update('username')} 
+            value={this.state.username}
+            placeholder="Username"
+            className='session-form-inputs'
+          />
+          {this.renderSignUpInputs()}
+          <input type="password" 
+            onChange={this.update('password')} 
+            value={this.state.password} 
+            placeholder="Password"
+            className='session-form-inputs'
+          />
+          <button className="session-form-btn">{this.props.formType}</button>
         </form>
       </div>
     )

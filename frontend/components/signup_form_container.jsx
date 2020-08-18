@@ -7,7 +7,7 @@ import React from 'react';
 const mSTP = state => ({
   errors: state.errors.session,
   formType: 'signup',
-  navLink: <Link to='/login'>Already have an account?</Link>
+  navLink: <Link to='/login'>Already a member?</Link>
 });
 
 const mDTP = dispatch => ({
