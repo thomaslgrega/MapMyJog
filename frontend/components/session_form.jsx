@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,22 +25,34 @@ class SessionForm extends React.Component {
   }
 
   render() {
-        
+    const otherFormRoute = this.props.formType === 'signup' ? 'login' : 'signup';
+    let emailSignUpInput = null;
+
+    if (this.props.formType === 'signup') {
+      emailSignUpInput = <label>Email:
+        <input type="text" onChange={this.update('email')} value={this.state.email} />
+      </label>
+    };
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
         <h1>{this.props.formType} page!</h1>
+        <Link to={`/${otherFormRoute}`}>{otherFormRoute}</Link>
         <ul>
-          {this.props.errors.map(error => <li>{error}</li>)}
+          {Object.values(this.props.errors).map((error, i) => <li key={i}>{error}</li>)}
         </ul>
-        <label>Username:
-          <input type="text" onChange={this.update('username')} />
-        </label>
-        <label>Password:
-          <input type="password" onChange={this.update('password')} />
-        </label>
-        <button>{this.props.formType}</button>
-      </form>
+
+        <form onSubmit={this.handleSubmit}>
+          <label>Username:
+            <input type="text" onChange={this.update('username')} value={this.state.username}/>
+          </label>
+          {emailSignUpInput}
+          <label>Password:
+            <input type="password" onChange={this.update('password')} value={this.state.password} />
+          </label>
+          <button>{this.props.formType}</button>
+        </form>
+      </div>
     )
   }
 }
