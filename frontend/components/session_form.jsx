@@ -10,7 +10,10 @@ class SessionForm extends React.Component {
       email: '',
       fname: '',
       lname: '',
-      dateOfBirth: '',
+      day: '',
+      month: '',
+      year: '',
+      date_of_birth: '',
       gender: ''
     };
 
@@ -23,6 +26,10 @@ class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  parseDate() {
+    
+  }
+
   update(field) {
     return e => {
       this.setState({ [field]: e.currentTarget.value })
@@ -31,6 +38,17 @@ class SessionForm extends React.Component {
 
   renderSignUpInputs() {
     let SignUpInputs = null;
+    const days = [];
+    for (let i = 1; i <= 31; i++) {
+      days.push(i);
+    }
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const years = [];
+    for (let i = 2009; i >= 1900; i--) {
+      years.push(i);
+    }
+
     if (this.props.formType === 'signup') {
       SignUpInputs = (
         <div>
@@ -52,11 +70,23 @@ class SessionForm extends React.Component {
             placeholder='Last Name'
             className='session-form-inputs'
           />
-          <input type="date"
-            onChange={this.update('date')}
-            value={this.state.date}
-            className='session-form-inputs'
-          />
+          <div className='birthdate-inputs'>
+            <select onChange={this.update('day')} value={this.state.day}>
+              {
+                days.map((day, i)=> <option key={i} value={day}>{day}</option>)
+              }
+            </select>
+            <select onChange={this.update('month')} value={this.state.month}>
+              {
+                months.map(month => <option value={month}>{month}</option>)
+              }
+            </select>
+            <select onChange={this.update('year')} value={this.state.year}>
+              {
+                years.map(year => <option value={year}>{year}</option>)
+              }
+            </select>
+          </div>
           <label>Male
             <input type="radio"
               onChange={this.update('gender')}
