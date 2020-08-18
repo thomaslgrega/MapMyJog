@@ -5,8 +5,7 @@ const sessionReducer = (state = { id: null }, action) => {
   const nextState = {...state};
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      nextState.id = action.currentUser.id
-      return nextState;
+      return { id: action.currentUser.id }
     case LOGOUT_CURRENT_USER:
       nextState.id = null;
       return nextState;
