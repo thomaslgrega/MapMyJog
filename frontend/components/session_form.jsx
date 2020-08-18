@@ -25,9 +25,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const otherFormRoute = this.props.formType === 'signup' ? 'login' : 'signup';
     let emailSignUpInput = null;
-
     if (this.props.formType === 'signup') {
       emailSignUpInput = <label>Email:
         <input type="text" onChange={this.update('email')} value={this.state.email} />
@@ -37,9 +35,9 @@ class SessionForm extends React.Component {
     return (
       <div>
         <h1>{this.props.formType} page!</h1>
-        <Link to={`/${otherFormRoute}`}>{otherFormRoute}</Link>
+        {this.props.navLink}
         <ul>
-          {Object.values(this.props.errors).map((error, i) => <li key={i}>{error}</li>)}
+          {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
 
         <form onSubmit={this.handleSubmit}>
