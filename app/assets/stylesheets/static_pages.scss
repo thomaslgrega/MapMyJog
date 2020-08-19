@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#root {
-  /* display: flex;
-  justify-content: center; */
-  background-color: #FFFAF0;
+
+html {
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+body {
+  width: 800px;
 }

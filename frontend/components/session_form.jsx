@@ -6,8 +6,8 @@ class SessionForm extends React.Component {
     this.state = {
       password: '',
       email: '',
-      fname: '',
-      lname: '',
+      first_name: '',
+      last_name: '',
       day: '',
       month: '',
       year: '',
@@ -16,19 +16,28 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this)
     this.renderSignUpInputs = this.renderSignUpInputs.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.parseDate()
+    this.props.processForm(this.state)
+      .then(() => this.props.history.push('/'))
+  }
+
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    this.props.loginDemo()
+      .then(() => this.props.history.push('/'))
   }
 
   parseDate() {
     const combinedBirthdate = `${this.state.day}-${this.state.month}-${this.state.year}`;
     this.setState({
       date_of_birth: combinedBirthdate
-    }, () => this.props.processForm(this.state).then(this.props.history.push('/')));
+    });
   }
 
   update(field) {
@@ -52,16 +61,16 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'signup') {
       SignUpInputs = (
-        <div>
+        <div className='sign-up-inputs'>
           <input type="text"
-            onChange={this.update('fname')}
-            value={this.state.fname}
+            onChange={this.update('first_name')}
+            value={this.state.first_name}
             placeholder='First Name'
             className='session-form-inputs'
           />
           <input type="text"
-            onChange={this.update('lname')}
-            value={this.state.lname}
+            onChange={this.update('last_name')}
+            value={this.state.last_name}
             placeholder='Last Name'
             className='session-form-inputs'
           />
@@ -94,6 +103,7 @@ class SessionForm extends React.Component {
                 checked={this.state.gender === 'male'}
                 className='session-form-radio'
               />
+              <span className="fas fa-check"></span>
             </label>
             <label>
               <span>Female</span>
@@ -103,7 +113,7 @@ class SessionForm extends React.Component {
                 checked={this.state.gender === 'female'}
                 className='session-form-radio'
               />
-              
+              <span className="fas fa-check"></span>
             </label>
           </div>
         </div>
@@ -119,6 +129,10 @@ class SessionForm extends React.Component {
         <ul className="errors-list">
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
+        <span class="fas fa-user-alt"></span><button className='demo-user-btn' onClick={this.handleDemoSubmit}>SIGN IN WITH DEMO USER</button>
+        <div className='divider-container'>
+          <span className='divider'></span><span className='divider-text'>OR</span><span className='divider'></span>
+        </div>
         <form onSubmit={this.handleSubmit} className="session-form">
           <input type="text" 
             onChange={this.update('email')} 

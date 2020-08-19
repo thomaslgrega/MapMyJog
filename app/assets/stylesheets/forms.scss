@@ -1,5 +1,5 @@
 .form-container {
-  padding-top: 30px;
+  padding-top: 85px;
   width: 300px;
   display: flex;
   justify-content: center;
@@ -9,13 +9,11 @@
 }
 
 .session-form {
-  // align-items: center;
   display: flex;
   flex-direction: column;
 }
 
 .session-form-btn {
-  // width: 100%;
   justify-content: center;
   background-color: #80ff80;
   padding: 10px;
@@ -26,7 +24,9 @@
 }
 
 .session-form-btn:hover {
-  backgroun-color: #00cc00;
+  background-color: #00cc00;
+  transition-duration: 0.3s;
+  cursor: pointer;
 }
 
 .session-form input {
@@ -34,7 +34,12 @@
   border: lightgray 1px solid;
   margin-bottom: 10px;
   padding: 10px;
-  width: 100%
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.session-form input:focus {
+  background-color: white;
 }
 
 .errors-list {
@@ -54,14 +59,25 @@
   font-size: 16px;
   color: gray;
   width: 31%;
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+
+.birthdate-inputs select:focus {
+  background-color: white;
 }
 
 .nav-link {
-  position: absolute;
+  position: relative;
   padding-bottom: 10px;
   text-decoration: none;
-  top: 4.5%;
-  right: 37.5%;
+  color: gray;
+  left: 54%;
+}
+
+.nav-link:hover {
+  transition-duration: 0.4s;
+  color: #333333;
 }
 
 .gender-inputs {
@@ -78,5 +94,61 @@
   padding-top: 10px;
   border: lightgray 1px solid;
   width: 44%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
+.fa-check {
+  padding-right: 15px;
+}
+
+input[type="radio"]:checked + span { 
+  color: lightgreen;
+  font-weight: bold;  
+} 
+
+.demo-user-btn:hover {
+  background-color: #2b406e;
+  transition-duration: 0.2s;
+}
+
+.demo-user-btn {
+  background-color: #3b5998;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.fa-user-alt {
+  color: white;
+  padding-right: 20px;
+}
+
+.divider-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  color: #a6a6a6;
+  font-size: 12px;
+}
+
+.divider-text {
+  padding-top: 2px;
+}
+
+.divider {
+  display: block;
+  width: 40%;
+  height: 1px;
+  padding-top: 7px;
+  border-bottom: 1px #a6a6a6 solid;
+}

@@ -1,3 +1,52 @@
-nav {
-  
+nav.nav-bar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-nav {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 65px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-nav:hover {
+  background-color: #fff2e6;
+  transition-duration: 0.2s;
+}
+
+.sign-up-nav {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 25px;
+  background-color: #00cc00;
+  border-radius: 5px;
+  width: 65px;
+}
+
+.sign-up-nav:hover {
+  background-color: darkgreen;
+  transition-duration: 0.2s;
+}
+
+.nav-auth-links {
+  width: 215px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.nav-logo {
+  display: block;
+  text-decoration: none;
+  padding-top: 10px;
 }

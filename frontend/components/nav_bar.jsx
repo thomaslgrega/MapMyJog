@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 const NavBar = props => {
   const sessionLinks = () => (
-    <nav>
-      <Link to='/login'>LOGIN</Link>
-      <Link to='/signup'>SIGN UP</Link>
-    </nav>
+    <div className='nav-auth-links'>
+      <Link to='/login' className='login-nav'>LOGIN</Link>
+      <Link to='/signup' className='sign-up-nav'>SIGN UP</Link>
+    </div>
   );
 
   const loggedInBar = () => (
-    <nav>
+    <div>
       <button onClick={props.logout}>LOG OUT</button>
-    </nav>
+    </div>
   );
 
   return props.currentUser ? loggedInBar() : sessionLinks();
