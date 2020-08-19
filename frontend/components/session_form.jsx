@@ -23,8 +23,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.parseDate()
-    this.props.processForm(this.state)
-      .then(() => this.props.history.push('/'))
+
   }
 
   handleDemoSubmit(e) {
@@ -37,7 +36,8 @@ class SessionForm extends React.Component {
     const combinedBirthdate = `${this.state.day}-${this.state.month}-${this.state.year}`;
     this.setState({
       date_of_birth: combinedBirthdate
-    });
+    }, () => this.props.processForm(this.state)
+        .then(() => this.props.history.push('/')));
   }
 
   update(field) {
