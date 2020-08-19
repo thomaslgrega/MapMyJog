@@ -4,7 +4,6 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
       password: '',
       email: '',
       fname: '',
@@ -23,14 +22,13 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.parseDate()
-    this.props.history.push('/')
   }
 
   parseDate() {
     const combinedBirthdate = `${this.state.day}-${this.state.month}-${this.state.year}`;
     this.setState({
       date_of_birth: combinedBirthdate
-    }, () => this.props.processForm(this.state));
+    }, () => this.props.processForm(this.state).then(this.props.history.push('/')));
   }
 
   update(field) {
@@ -55,12 +53,6 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'signup') {
       SignUpInputs = (
         <div>
-          <input type="text"
-            onChange={this.update('email')}
-            value={this.state.email}
-            placeholder='Email'
-            className='session-form-inputs'
-          />
           <input type="text"
             onChange={this.update('fname')}
             value={this.state.fname}
@@ -127,21 +119,20 @@ class SessionForm extends React.Component {
         <ul className="errors-list">
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
-
         <form onSubmit={this.handleSubmit} className="session-form">
           <input type="text" 
-            onChange={this.update('username')} 
-            value={this.state.username}
-            placeholder="Username"
+            onChange={this.update('email')} 
+            value={this.state.email}
+            placeholder="Email"
             className='session-form-inputs'
           />
-          {this.renderSignUpInputs()}
           <input type="password" 
             onChange={this.update('password')} 
             value={this.state.password} 
             placeholder="Password"
             className='session-form-inputs'
           />
+          {this.renderSignUpInputs()}
           <button className="session-form-btn">{this.props.formType}</button>
         </form>
       </div>

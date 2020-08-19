@@ -1,9 +1,11 @@
 .form-container {
-  width: 30%;
+  padding-top: 30px;
+  width: 300px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
   flex-direction: column;
+  display: relative;
 }
 
 .session-form {
@@ -23,6 +25,10 @@
   letter-spacing: 2px;
 }
 
+.session-form-btn:hover {
+  backgroun-color: #00cc00;
+}
+
 .session-form input {
   box-sizing: border-box;
   border: lightgray 1px solid;
@@ -31,16 +37,12 @@
   width: 100%
 }
 
-.session-form-radio {
-  width: 40%;
-  border: 1px lightgray solid
-}
-
 .errors-list {
   color: red
 }
 
 .birthdate-inputs {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
@@ -49,16 +51,17 @@
 .birthdate-inputs select {
   border: lightgray 1px solid;
   padding: 10px;
-  padding-right: 25px;
   font-size: 16px;
-  color: gray
+  color: gray;
+  width: 31%;
 }
 
 .nav-link {
-  position: relative;
+  position: absolute;
   padding-bottom: 10px;
-  left: 50%;
   text-decoration: none;
+  top: 4.5%;
+  right: 37.5%;
 }
 
 .gender-inputs {
@@ -70,7 +73,10 @@
 
 .gender-inputs label {
   color: gray;
-  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   border: lightgray 1px solid;
-  width: 40%;
+  width: 44%;
 }
+
