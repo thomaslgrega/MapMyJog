@@ -11,7 +11,13 @@ const NavBar = props => {
 
   const loggedInBar = () => (
     <div>
-      <button onClick={props.logout}>LOG OUT</button>
+      <div className='profile-dropdown-container far fa-user-circle'>
+        <ul className='profile-dropdown-content'>
+          <div className='dropdown-btn'>Dashboard</div>
+          <div className='dropdown-btn'>Friends</div>
+          <div className='dropdown-btn' onClick={props.logout}>Logout</div>
+        </ul>
+      </div>
     </div>
   );
 

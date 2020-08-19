@@ -129,7 +129,7 @@ class SessionForm extends React.Component {
         <ul className="errors-list">
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
-        <span class="fas fa-user-alt"></span><button className='demo-user-btn' onClick={this.handleDemoSubmit}>SIGN IN WITH DEMO USER</button>
+        <button className='demo-user-btn' onClick={this.handleDemoSubmit}><span className="fas fa-user-alt"></span>SIGN IN WITH DEMO USER</button>
         <div className='divider-container'>
           <span className='divider'></span><span className='divider-text'>OR</span><span className='divider'></span>
         </div>
