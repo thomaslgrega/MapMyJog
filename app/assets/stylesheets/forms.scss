@@ -15,7 +15,7 @@
 .session-form-btn {
   // width: 100%;
   justify-content: center;
-  background-color: lightgreen;
+  background-color: #80ff80;
   padding: 10px;
   color: white;
   border-radius: 3px;
@@ -38,4 +38,39 @@
 
 .errors-list {
   color: red
+}
+
+.birthdate-inputs {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.birthdate-inputs select {
+  border: lightgray 1px solid;
+  padding: 10px;
+  padding-right: 25px;
+  font-size: 16px;
+  color: gray
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 10px;
+  left: 50%;
+  text-decoration: none;
+}
+
+.gender-inputs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.gender-inputs label {
+  color: gray;
+  padding: 10px;
+  border: lightgray 1px solid;
+  width: 40%;
 }

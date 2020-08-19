@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -23,11 +22,15 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.parseDate()
+    this.props.history.push('/')
   }
 
   parseDate() {
-    
+    const combinedBirthdate = `${this.state.day}-${this.state.month}-${this.state.year}`;
+    this.setState({
+      date_of_birth: combinedBirthdate
+    }, () => this.props.processForm(this.state));
   }
 
   update(field) {
@@ -72,37 +75,45 @@ class SessionForm extends React.Component {
           />
           <div className='birthdate-inputs'>
             <select onChange={this.update('day')} value={this.state.day}>
+              <option default disabled value="">Day</option>
               {
                 days.map((day, i)=> <option key={i} value={day}>{day}</option>)
               }
             </select>
             <select onChange={this.update('month')} value={this.state.month}>
+              <option default disabled value="">Month</option>
               {
-                months.map(month => <option value={month}>{month}</option>)
+                months.map((month, i) => <option key={i} value={month}>{month}</option>)
               }
             </select>
             <select onChange={this.update('year')} value={this.state.year}>
+              <option default disabled value="">Year</option>
               {
-                years.map(year => <option value={year}>{year}</option>)
+                years.map((year, i) => <option key={i} value={year}>{year}</option>)
               }
             </select>
           </div>
-          <label>Male
-            <input type="radio"
-              onChange={this.update('gender')}
-              value='male'
-              checked={this.state.gender === 'male'}
-              className='session-form-radio'
-            />
-          </label>
-          <label>Female
-            <input type="radio"
-              onChange={this.update('gender')}
-              value='female'
-              checked={this.state.gender === 'female'}
-              className='session-form-radio'
-            />
-          </label> 
+          <div className='gender-inputs'>
+            <label>
+              <span>Male</span>
+              <input type="radio"
+                onChange={this.update('gender')}
+                value='male'
+                checked={this.state.gender === 'male'}
+                className='session-form-radio'
+              />
+            </label>
+            <label>
+              <span>Female</span>
+              <input type="radio"
+                onChange={this.update('gender')}
+                value='female'
+                checked={this.state.gender === 'female'}
+                className='session-form-radio'
+              />
+              
+            </label>
+          </div>
         </div>
       )
     }

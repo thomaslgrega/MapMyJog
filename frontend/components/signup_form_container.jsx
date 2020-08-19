@@ -4,10 +4,10 @@ import SessionForm from './session_form';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
   errors: state.errors.session,
   formType: 'signup',
-  navLink: <Link to='/login'>Already a member?</Link>
+  navLink: <Link to='/login' className='nav-link'>Already a member?</Link>
 });
 
 const mDTP = dispatch => ({
