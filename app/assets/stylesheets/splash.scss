@@ -27,10 +27,12 @@
 }
 
 .catch-phrase {
+  display: inline-block;
   color: white;
   font-size: 40px;
   font-weight: 900;
   z-index: 1;
+  margin-right: 5px;
 }
 
 .catch-phrase-container {
@@ -44,9 +46,20 @@
   margin-left: 900px;
 }
 
-@media only screen and (min-width: 1300px) {
+.splash-text-container {
+  position: absolute;
+  top: 33%;
+  text-align: right;
+  color: white;
+  // right: 65px;
+  // left: 53%;
+  // z-index: 99;
+  margin-left: 870px;
+}
+
+@media only screen and (max-width: 1300px) {
   .splash-text-container {
-    right: 500px;
+    right: 65px
   }
 }
 
@@ -76,14 +89,6 @@ hr {
   width: 100%;
 }
 
-.splash-text-container {
-  position: absolute;
-  top: 33%;
-  text-align: right;
-  color: white;
-  right: 65px;
-  // z-index: 99;
-}
 
 .splash-app-desc {
   display: inline-block;

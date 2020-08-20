@@ -1,4 +1,5 @@
 import React from 'react';
+import { clearSessionErrors } from '../actions/session_actions';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -18,6 +19,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this)
     this.renderSignUpInputs = this.renderSignUpInputs.bind(this)
+  }
+
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
   }
 
   handleSubmit(e) {
@@ -123,6 +128,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
     return (
       <div className="form-container">
         {this.props.navLink}
