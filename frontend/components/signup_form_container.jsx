@@ -7,12 +7,14 @@ import React from 'react';
 const mSTP = (state, ownProps) => ({
   errors: state.errors.session,
   formType: 'signup',
-  navLink: <Link to='/login' className='nav-link' onClick={() => dispatch(clearSessionErrors())}>Already a member?</Link>
+  // navLink: <Link to='/login' className='nav-link' onClick={() => dispatch(clearSessionErrors())}>Already a member?</Link>
+  navLink: <Link to='/login' className='nav-link'>Already a member?</Link>
 });
 
 const mDTP = dispatch => ({
   processForm: user => dispatch(signup(user)),
-  loginDemo: () => dispatch(loginDemo())
+  loginDemo: () => dispatch(loginDemo()),
+  clearSessionErrors: () => dispatch(clearSessionErrors())
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

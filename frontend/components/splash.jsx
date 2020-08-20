@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Splash = () => {
   return (
     <div className='main-splash-container'>
-      <div className='splash-image'>
+      {/* <div className='splash-image'> */}
+        <div className='splash-image'></div>
         <div className='catch-phrase-container'>
           <hr size='8' />
           <span className='catch-phrase'>OWN EVERY MILE</span>
@@ -20,7 +21,7 @@ const Splash = () => {
             <Link to='/login' className='splash-login-link'>LOG IN</Link>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <div className='slanted-div'></div>
     </div>
   )

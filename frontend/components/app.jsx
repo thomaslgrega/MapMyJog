@@ -6,12 +6,13 @@ import SplashContainer from './splash_container';
 import { AuthRoute } from '../util/route_util';
 import { Route, Link } from 'react-router-dom';
 import { clearSessionErrors } from '../actions/session_actions';
+import { connect } from 'react-redux';
 
 const App = () => {
   return (
     <div>
       <nav className='nav-bar'>
-        <Link to='/' className='nav-logo' onClick={() => dispatch(clearSessionErrors())}>MAPMYJOG</Link>
+        <Link to='/' className='nav-logo' onClick={clearSessionErrors}>MAPMYJOG</Link>
         <Route exact path='/' component={NavBarContainer} />
       </nav>
       <Route exact path='/' component={SplashContainer} />
@@ -22,4 +23,10 @@ const App = () => {
   )
 };
 
-export default App;
+// export default App;
+
+const mDTP = dispatch => ({
+  clearSessionErrors: () => dispatch(clearSessionErrors())
+});
+
+export default connect(null, mDTP)(App);

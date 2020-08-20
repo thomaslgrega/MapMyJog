@@ -14,15 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { id: window.currentUser.id }
     };
     store = configureStore(preloadedState);
+    const script = document.getElementById('current-user-script');
+    script.remove()
     delete window.currentUser;
   } else {
     store = configureStore();
   }
 
-  // test
-  window.loginDemo = loginDemo
-  window.dispatch = store.dispatch
-  // test
+  //test
+  window.getState = store.getState;
+  //test
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
