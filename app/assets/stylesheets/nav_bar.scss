@@ -1,9 +1,19 @@
 nav.nav-bar {
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 7%;
+  padding-right: 7%;
   display: flex;
   justify-content: space-between;
   letter-spacing: 1px;
+  background-color: #f5f5f5;
+}
+
+@media only screen and (min-width: 1200px) {
+  nav.nav-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 .login-nav {
@@ -84,6 +94,7 @@ nav.nav-bar {
   // z-index: 1;
   top: 30px;
   right: -10px;
+  z-index: 2;
 }
 
 .dropdown-btn {
