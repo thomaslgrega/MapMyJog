@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -19,6 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  // test
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.requestRoutes = requestRoutes;
+    // window.requestRoute = requestRoute;
+    // window.createRoute = createRoute;
+    // window.updateRoute = updateRoute;
+    // window.deleteRoute = deleteRoute;
+  // test
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

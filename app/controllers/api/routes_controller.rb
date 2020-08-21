@@ -1,7 +1,7 @@
 class Api::RoutesController < ApplicationController
   def index
     @routes = Route.where(creator_id: params[:user_id])
-    render :index
+    render "/api/routes/index"
   end
 
   def show
@@ -26,17 +26,22 @@ class Api::RoutesController < ApplicationController
 
   def destroy
     route = Route.find_by(id: params[:id])
-    user = current_user
-    route.destroy if user.id === route.creator_id
+    @user = current_user
+    route.destroy if @user.id === route.creator_id
     render "/api/users/show"
   end
 
   def update
-    route = Route.find_by(id: params[:id])
+    @route = Route.find_by(id: params[:id])
+    if @route.update(route_params)
+      render :show
+    else
+      render json: @route.errors.full_messages, status: 422
+    end
   end
 
   private
   def route_params
-    params.require(:route).permit(:name, :description)
+    params.require(:route).permit(:name, :description, :distance, :waypoints)
   end
 end
