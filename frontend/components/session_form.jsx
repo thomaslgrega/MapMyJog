@@ -1,5 +1,4 @@
 import React from 'react';
-import { clearSessionErrors } from '../actions/session_actions';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -28,7 +27,6 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.parseDate()
-
   }
 
   handleDemoSubmit(e) {

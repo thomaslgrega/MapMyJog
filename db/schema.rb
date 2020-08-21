@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_225728) do
+ActiveRecord::Schema.define(version: 2020_08_21_001138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_225728) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "waypoints", default: [], array: true
+    t.string "waypoints", default: [], null: false, array: true
     t.index ["creator_id"], name: "index_routes_on_creator_id"
     t.index ["name"], name: "index_routes_on_name"
   end
