@@ -2,8 +2,8 @@ import React from 'react';
 import RoutesIndex from './routes_index';
 import RoutesMap from './routes_map';
 
-const Search = (props) => (
-  <div className="dashboard-container">
+const RoutesCreate = (props) => (
+  <div className="routes-container">
     <RoutesMap routes={props.routes} />
     <RoutesIndex 
       routes={props.routes} 
@@ -17,4 +17,4 @@ const Search = (props) => (
   </div>
 );
 
-export default Search;
+export default RoutesCreate;

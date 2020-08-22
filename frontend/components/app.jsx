@@ -7,7 +7,7 @@ import NavBarContainer from './nav_bar_container';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
 import SplashContainer from './splash_container';
-import SearchContainer from './routes/search_container';
+import RoutesCreateContainer from './routes/routes_create_container';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route path='/' component={NavBarContainer} />
       </nav>
       <AuthRoute exact path='/' component={SplashContainer} />
-      <ProtectedRoute exact path='/dashboard' component={SearchContainer} />
+      <ProtectedRoute exact path='/dashboard' component={RoutesCreateContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
     </div>

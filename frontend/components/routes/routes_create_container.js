@@ -1,6 +1,6 @@
 import { requestRoutes, createRoute, requestRoute, updateRoute, deleteRoute } from "../../actions/routes_actions";
 import { connect } from "react-redux";
-import Search from './search';
+import RoutesCreate from './routes_create';
 
 const mSTP = ({ entities, session }) => ({
   routes: Object.values(entities.routes),
@@ -15,4 +15,4 @@ const mDTP = dispatch => ({
   deleteRoute: routeId => dispatch(deleteRoute(routeId))
 });
 
-export default connect(mSTP, mDTP)(Search);
+export default connect(mSTP, mDTP)(RoutesCreate);
