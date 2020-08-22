@@ -16,7 +16,7 @@ const App = () => {
         <Link to='/' className='nav-logo' onClick={clearSessionErrors}>MAPMYJOG</Link>
         <Route path='/' component={NavBarContainer} />
       </nav>
-      <Route exact path='/' component={SplashContainer} />
+      <AuthRoute exact path='/' component={SplashContainer} />
       <ProtectedRoute exact path='/dashboard' component={SearchContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />

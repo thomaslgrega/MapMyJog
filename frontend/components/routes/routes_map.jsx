@@ -12,6 +12,7 @@ class RoutesMap extends React.Component {
     this.renderDirections = this.renderDirections.bind(this);
 
     this.waypoints = [];
+    this.latLngArr = [];
   }
 
   componentDidMount() {
@@ -37,20 +38,27 @@ class RoutesMap extends React.Component {
   }
 
   placeMarker(latLng) {
-    const marker = new google.maps.Marker({
-      position: latLng,
-      map: this.map,
-      title: 'This is a test'
-    });
+    // const marker = new google.maps.Marker({
+    //   position: latLng,
+    //   map: this.map,
+    //   title: 'This is a test'
+    // });
 
     const lat = latLng.lat();
     const lng = latLng.lng();
     
+    this.latLngArr.push(latLng);
     this.waypoints.push({ lat, lng });
     console.log(this.waypoints);
     // this.createPolyline();
     if (this.waypoints.length > 1) {
       this.renderDirections();
+    } else {
+      const marker = new google.maps.Marker({
+      position: latLng,
+      map: this.map,
+      title: 'This is a test'
+    });
     }
   }
 
@@ -69,24 +77,26 @@ class RoutesMap extends React.Component {
   renderDirections() {
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer();
+    console.log(this.latLngArr)
     let request = { 
-      origin: this.waypoints[0],
+      origin: this.waypoints[this.waypoints.length - 2],
       destination: this.waypoints[this.waypoints.length - 1],
       travelMode: 'WALKING',
-      waypoints: this.waypoints
+      // waypoints: this.latLngArr
     }
 
     directionsDisplay.setMap(this.map);
     directionsService.route(request, (result, status) => {
       if (status == 'OK') {
+        console.log(result);
         directionsDisplay.setDirections(result);
       }
     });
   }
 
-  clearWaypoints() {
+  // clearWaypoints() {
 
-  }
+  // }
 
   undoWaypoint() {
     const lastWaypoint = this.waypoints.pop();
