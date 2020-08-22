@@ -5,9 +5,19 @@
 #map-container {
   display: flex;
   justify-content: right;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard-container {
+  height: 92.5%;
+  width: 100%;
+  margin: 0;
 }
 
 #map {
-  width: 500px;
-  height: 800px;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
 }

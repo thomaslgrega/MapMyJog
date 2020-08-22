@@ -2,17 +2,19 @@ import React from 'react';
 
 class RoutesMap extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.handleMapClick = this.handleMapClick.bind(this);
-    this.initMap = this.initMap.bind(this);
-    this.placeMarker = this.placeMarker.bind(this);
-    // this.createPolyline = this.createPolyline.bind(this);
-    this.undoWaypoint = this.undoWaypoint.bind(this);
+    this.state = {
+      distance: 0
+    }
+
     this.renderDirections = this.renderDirections.bind(this);
+    this.handleMapClick = this.handleMapClick.bind(this);
+    this.undoWaypoint = this.undoWaypoint.bind(this);
+    this.clearWaypoints = this.clearWaypoints.bind(this);
+    this.updateDistance = this.updateDistance.bind(this);
 
-    this.waypoints = [];
-    this.latLngArr = [];
+    this.latLngArr = []
   }
 
   componentDidMount() {
@@ -21,7 +23,6 @@ class RoutesMap extends React.Component {
 
   initMap() {
     const sanFran = new google.maps.LatLng(37.7758, -122.435);
-
     const mapOptions = {
       center: sanFran,
       zoom: 13,
@@ -32,83 +33,66 @@ class RoutesMap extends React.Component {
     this.map.addListener('click', this.handleMapClick)
   }
 
-  handleMapClick(e) {
-    console.log(e.latLng)
-    this.placeMarker(e.latLng);
-  }
-
-  placeMarker(latLng) {
-    // const marker = new google.maps.Marker({
-    //   position: latLng,
-    //   map: this.map,
-    //   title: 'This is a test'
-    // });
-
-    const lat = latLng.lat();
-    const lng = latLng.lng();
-    
-    this.latLngArr.push(latLng);
-    this.waypoints.push({ lat, lng });
-    console.log(this.waypoints);
-    // this.createPolyline();
-    if (this.waypoints.length > 1) {
-      this.renderDirections();
-    } else {
-      const marker = new google.maps.Marker({
-      position: latLng,
-      map: this.map,
-      title: 'This is a test'
-    });
-    }
-  }
-
-  // createPolyline() {
-  //   const runPath = new google.maps.Polyline({
-  //     path: this.waypoints,
-  //     geodesic: false,
-  //     strokeColor: "#FF0000",
-  //     strokeOpacity: 1.0,
-  //     strokeWeight: 2
-  //   });
-
-  //   runPath.setMap(this.map)
-  // };
-
   renderDirections() {
-    let directionsService = new google.maps.DirectionsService();
-    let directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
-    console.log(this.latLngArr)
+    if (!this.directionsService) 
+      this.directionsService = new google.maps.DirectionsService();
+
+    if (!this.directionsDisplay) 
+      this.directionsDisplay = new google.maps.DirectionsRenderer({ map: this.map, preserveViewport: true });
+
+    const midLatLngs = this.latLngArr.slice(1, this.latLngArr.length - 1);
+    const wpts = midLatLngs.map(latLng => ({
+      location: latLng,
+      stopover: false
+    }));
+
     let request = { 
-      origin: this.waypoints[this.waypoints.length - 2],
-      destination: this.waypoints[this.waypoints.length - 1],
+      origin: this.latLngArr[0],
+      destination: this.latLngArr[this.latLngArr.length - 1],
       travelMode: 'WALKING',
-      // waypoints: this.latLngArr
+      waypoints: wpts
     }
 
-    directionsDisplay.setMap(this.map);
-    directionsService.route(request, (result, status) => {
-      if (status == 'OK') {
+    this.directionsService.route(request, (result, status) => {
+      if (status === 'OK') {
+        this.directionsDisplay.setDirections(result);
+        this.updateDistance(result);
         console.log(result);
-        directionsDisplay.setDirections(result);
+        console.log(this.state.distance);
       }
     });
   }
 
-  // clearWaypoints() {
-
-  // }
-
   undoWaypoint() {
-    const lastWaypoint = this.waypoints.pop();
-    lastWaypoint.setMap(null);
+    this.latLngArr.pop();
+    if (this.latLngArr.length === 0) this.directionsService = null;
+    this.renderDirections();
   }
+
+  clearWaypoints() {
+    this.latLngArr = [];
+    this.directionsDirections = null;
+    this.directionsDisplay = null;
+    this.renderDirections();
+  }
+
+  updateDistance(result) {
+    this.setState({
+      distance: result.routes[0].legs[0].distance.text
+    })
+  }
+
+  handleMapClick(e) {
+    this.latLngArr.push(e.latLng);
+    this.renderDirections();
+  } 
 
   render() {
     return (
       <div id="map-container">
         <div id="map" ref={map => this.mapNode = map}></div>
-        <div onClick={this.undoWaypoint}>undo</div>
-
+        <div onClick={this.undoWaypoint}>Undo</div>
+        <div onClick={this.clearWaypoints}>Clear</div>
       </div>
     )
   }

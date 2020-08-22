@@ -7,7 +7,6 @@ import React from 'react';
 const mSTP = (state, ownProps) => ({
   errors: state.errors.session,
   formType: 'signup',
-  // navLink: <Link to='/login' className='nav-link' onClick={() => dispatch(clearSessionErrors())}>Already a member?</Link>
   navLink: <Link to='/login' className='nav-link'>Already a member?</Link>
 });
 

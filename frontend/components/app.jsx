@@ -11,7 +11,7 @@ import SearchContainer from './routes/search_container';
 
 const App = () => {
   return (
-    <div>
+    <div className='app-container'>
       <nav className='nav-bar'>
         <Link to='/' className='nav-logo' onClick={clearSessionErrors}>MAPMYJOG</Link>
         <Route path='/' component={NavBarContainer} />

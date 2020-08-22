@@ -3,7 +3,7 @@ import RoutesIndex from './routes_index';
 import RoutesMap from './routes_map';
 
 const Search = (props) => (
-  <div>
+  <div className="dashboard-container">
     <RoutesMap routes={props.routes} />
     <RoutesIndex 
       routes={props.routes} 
