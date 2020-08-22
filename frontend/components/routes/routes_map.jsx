@@ -76,7 +76,7 @@ class RoutesMap extends React.Component {
 
   renderDirections() {
     let directionsService = new google.maps.DirectionsService();
-    let directionsDisplay = new google.maps.DirectionsRenderer();
+    let directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
     console.log(this.latLngArr)
     let request = { 
       origin: this.waypoints[this.waypoints.length - 2],
