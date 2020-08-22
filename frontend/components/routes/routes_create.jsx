@@ -5,7 +5,9 @@ import RoutesMap from './routes_map';
 const RoutesCreate = (props) => (
   <div className="routes-container">
     <RoutesMap routes={props.routes} />
-    <RoutesIndex 
+
+
+    {/* <RoutesIndex 
       routes={props.routes} 
       currentUser={props.currentUser}
       requestRoutes={props.requestRoutes}
@@ -13,7 +15,7 @@ const RoutesCreate = (props) => (
       createRoute={props.createRoute}
       updateRoute={props.updateRoute}
       deleteRoute={props.deleteRoute}
-    />
+    /> */}
   </div>
 );
 

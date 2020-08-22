@@ -1,11 +1,13 @@
 import React from 'react';
+import RoutesSidebar from './routes_sidebar';
+import RoutesToolPanel from './routes_tool_panel';
 
 class RoutesMap extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      distance: 0
+      distance: "0 MI"
     }
 
     this.renderDirections = this.renderDirections.bind(this);
@@ -13,6 +15,9 @@ class RoutesMap extends React.Component {
     this.undoWaypoint = this.undoWaypoint.bind(this);
     this.clearWaypoints = this.clearWaypoints.bind(this);
     this.updateDistance = this.updateDistance.bind(this);
+    this.reverseWaypoints = this.reverseWaypoints.bind(this);
+    this.centerMap = this.centerMap.bind(this);
+    this.returnToStart = this.returnToStart.bind(this);
 
     this.latLngArr = []
   }
@@ -58,7 +63,7 @@ class RoutesMap extends React.Component {
         this.directionsDisplay.setDirections(result);
         this.updateDistance(result);
         console.log(result);
-        console.log(this.state.distance);
+        console.log(this.distance);
       }
     });
   }
@@ -72,13 +77,18 @@ class RoutesMap extends React.Component {
   clearWaypoints() {
     this.latLngArr = [];
     this.directionsDirections = null;
-    this.directionsDisplay = null;
+    this.renderDirections();
+  }
+
+  reverseWaypoints() {
+    this.latLngArr.reverse();
     this.renderDirections();
   }
 
   updateDistance(result) {
+    const distanceText = result.routes[0].legs[0].distance.text.toUpperCase()
     this.setState({
-      distance: result.routes[0].legs[0].distance.text
+      distance: distanceText
     })
   }
 
@@ -87,12 +97,42 @@ class RoutesMap extends React.Component {
     this.renderDirections();
   } 
 
+  centerMap() {
+    const bounds = this.directionsDisplay.getDirections().routes[0].bounds;
+    const padding = {
+      bottom: 400,
+      left: 600,
+      right: 600,
+      top: 400
+    }
+
+    this.map.panToBounds(bounds, padding);
+  }
+
+  returnToStart() {
+    this.latLngArr.push(this.latLngArr[0]);
+    this.renderDirections();
+  }
+
   render() {
     return (
       <div id="map-container">
         <div id="map" ref={map => this.mapNode = map}></div>
-        <div onClick={this.undoWaypoint}>Undo</div>
-        <div onClick={this.clearWaypoints}>Clear</div>
+        <RoutesSidebar 
+          distance={this.state.distance}
+        /> 
+
+        <RoutesToolPanel 
+          clearWaypoints={this.clearWaypoints}
+          undoWaypoint={this.undoWaypoint}
+          reverseWaypoints={this.reverseWaypoints}
+          centerMap={this.centerMap}
+          returnToStart={this.returnToStart}
+          distance={this.state.distance}
+        />
+
+        {/* <div onClick={this.undoWaypoint}>Undo</div>
+        <div onClick={this.clearWaypoints}>Clear</div> */}
       </div>
     )
   }
