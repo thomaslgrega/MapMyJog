@@ -14,7 +14,7 @@ const NavBar = props => {
       <div className='profile-dropdown-container far fa-user-circle'>
         <ul className='profile-dropdown-content'>
           <Link to='/dashboard' className='dropdown-btn'>Dashboard</Link>
-          <Link className='dropdown-btn'>Friends</Link>
+          <Link to='/friends' className='dropdown-btn'>Friends</Link>
           <div className='dropdown-btn' onClick={props.logout}>Logout</div>
         </ul>
       </div>

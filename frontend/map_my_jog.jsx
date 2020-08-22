@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // test
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.requestRoutes = requestRoutes;
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.requestRoutes = requestRoutes;
     // window.requestRoute = requestRoute;
     // window.createRoute = createRoute;
     // window.updateRoute = updateRoute;

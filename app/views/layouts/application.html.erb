@@ -4,6 +4,10 @@
     <title>Mapmyjog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <script defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:api_key] %>">
+    </script>
     <script src="https://kit.fontawesome.com/572001cbb3.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
