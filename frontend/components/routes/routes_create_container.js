@@ -5,7 +5,7 @@ import RoutesMap from './routes_map';
 const mSTP = ({ entities, session }) => ({
   // routes: Object.values(entities.routes),
   route: { 
-    creator_id: entities.users[session.id],
+    creator_id: session.id,
     name: '',
     description: '',
     waypoints: [],

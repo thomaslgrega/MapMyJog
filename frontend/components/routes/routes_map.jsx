@@ -16,6 +16,7 @@ class RoutesMap extends React.Component {
     this.reverseWaypoints = this.reverseWaypoints.bind(this);
     this.centerMap = this.centerMap.bind(this);
     this.returnToStart = this.returnToStart.bind(this);
+    this.test = this.test.bind(this);
 
     this.latLngArr = []
   }
@@ -37,11 +38,14 @@ class RoutesMap extends React.Component {
   }
 
   renderDirections() {
-    if (!this.directionsService) 
+    if (!this.directionsService) {
       this.directionsService = new google.maps.DirectionsService();
+    }
 
-    if (!this.directionsDisplay) 
+    if (!this.directionsDisplay) {
       this.directionsDisplay = new google.maps.DirectionsRenderer({ map: this.map, preserveViewport: true });
+      // this.directionsDisplay.setMap(this.map);
+    }
 
     const midLatLngs = this.latLngArr.slice(1, this.latLngArr.length - 1);
     const wpts = midLatLngs.map(latLng => ({
@@ -62,18 +66,24 @@ class RoutesMap extends React.Component {
         this.updateDistance(result);
       }
     });
+
+    this.setState({ waypoints: this.latLngArr.slice() });
   }
 
   undoWaypoint() {
-    this.latLngArr.pop();
-    if (this.latLngArr.length === 0) this.directionsService = null;
-    this.renderDirections();
+    if (this.latLngArr.length === 2) {
+      this.clearWaypoints()
+    } else {
+      this.latLngArr.pop();
+      this.renderDirections()
+    }
   }
 
   clearWaypoints() {
     this.latLngArr = [];
-    this.directionsDirections = null;
+    this.directionsDisplay.setDirections({ routes: this.latLngArr });
     this.renderDirections();
+    this.setState({ distance: '0 MI' })
   }
 
   reverseWaypoints() {
@@ -90,7 +100,6 @@ class RoutesMap extends React.Component {
 
   handleMapClick(e) {
     this.latLngArr.push({ lat: e.latLng.lat(), lng: e.latLng.lng() });
-    console.log(this.latLngArr);
     this.renderDirections();
   } 
 
@@ -111,6 +120,10 @@ class RoutesMap extends React.Component {
     this.renderDirections();
   }
 
+  test() {
+    debugger
+  }
+
   render() {
     return (
       <div id="map-container">
@@ -127,6 +140,7 @@ class RoutesMap extends React.Component {
           centerMap={this.centerMap}
           returnToStart={this.returnToStart}
           distance={this.state.distance}
+          test={this.test}
         />
       </div>
     )

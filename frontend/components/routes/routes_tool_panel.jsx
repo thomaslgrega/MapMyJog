@@ -10,6 +10,7 @@ const RoutesToolPanel = props => {
       <button onClick={props.reverseWaypoints}>REVERSE</button>
       <button onClick={props.centerMap}>CENTER</button>
       <button onClick={props.returnToStart}>RETURN</button>
+      <button onClick={props.test}>TEST</button>
     </div>
   )
 }
