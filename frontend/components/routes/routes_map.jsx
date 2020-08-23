@@ -6,9 +6,7 @@ class RoutesMap extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      distance: "0 MI"
-    }
+    this.state = this.props.route;
 
     this.renderDirections = this.renderDirections.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
@@ -51,7 +49,7 @@ class RoutesMap extends React.Component {
       stopover: false
     }));
 
-    let request = { 
+    const request = { 
       origin: this.latLngArr[0],
       destination: this.latLngArr[this.latLngArr.length - 1],
       travelMode: 'WALKING',
@@ -62,8 +60,6 @@ class RoutesMap extends React.Component {
       if (status === 'OK') {
         this.directionsDisplay.setDirections(result);
         this.updateDistance(result);
-        console.log(result);
-        console.log(this.distance);
       }
     });
   }
@@ -93,7 +89,8 @@ class RoutesMap extends React.Component {
   }
 
   handleMapClick(e) {
-    this.latLngArr.push(e.latLng);
+    this.latLngArr.push({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    console.log(this.latLngArr);
     this.renderDirections();
   } 
 
@@ -120,7 +117,8 @@ class RoutesMap extends React.Component {
         <div id="map" ref={map => this.mapNode = map}></div>
         <RoutesSidebar 
           distance={this.state.distance}
-        /> 
+          action={this.props.action}
+        />
 
         <RoutesToolPanel 
           clearWaypoints={this.clearWaypoints}
@@ -130,9 +128,6 @@ class RoutesMap extends React.Component {
           returnToStart={this.returnToStart}
           distance={this.state.distance}
         />
-
-        {/* <div onClick={this.undoWaypoint}>Undo</div>
-        <div onClick={this.clearWaypoints}>Clear</div> */}
       </div>
     )
   }

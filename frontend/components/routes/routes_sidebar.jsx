@@ -48,6 +48,6 @@ class RoutesSidebar extends React.Component {
 
 export default RoutesSidebar;
 
-mSTP = ({ entities, session }) => ({
+const mSTP = ({ entities, session }) => ({
   currentUser: entities.users[session.id]
-})
+});
