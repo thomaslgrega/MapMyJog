@@ -16,19 +16,24 @@ class RoutesMap extends React.Component {
     this.reverseWaypoints = this.reverseWaypoints.bind(this);
     this.centerMap = this.centerMap.bind(this);
     this.returnToStart = this.returnToStart.bind(this);
-    this.test = this.test.bind(this);
+    // this.test = this.test.bind(this);
 
-    this.latLngArr = []
+    this.latLngArr = this.state.waypoints
   }
 
   componentDidMount() {
     this.initMap()
+
+    if (this.state.waypoints.length > 0) {
+      this.renderDirections()
+    }
   }
 
   initMap() {
     const sanFran = new google.maps.LatLng(37.7758, -122.435);
+    const center = this.state.waypoints.length > 0 ? this.state.waypoints[0] : sanFran
     const mapOptions = {
-      center: sanFran,
+      center,
       zoom: 13,
       clickableIcons: false
     };
@@ -44,7 +49,6 @@ class RoutesMap extends React.Component {
 
     if (!this.directionsDisplay) {
       this.directionsDisplay = new google.maps.DirectionsRenderer({ map: this.map, preserveViewport: true });
-      // this.directionsDisplay.setMap(this.map);
     }
 
     const midLatLngs = this.latLngArr.slice(1, this.latLngArr.length - 1);
@@ -71,7 +75,7 @@ class RoutesMap extends React.Component {
   }
 
   undoWaypoint() {
-    if (this.latLngArr.length === 2) {
+    if (this.latLngArr.length <= 2) {
       this.clearWaypoints()
     } else {
       this.latLngArr.pop();
@@ -80,15 +84,18 @@ class RoutesMap extends React.Component {
   }
 
   clearWaypoints() {
-    this.latLngArr = [];
-    this.directionsDisplay.setDirections({ routes: this.latLngArr });
-    this.renderDirections();
-    this.setState({ distance: '0 MI' })
+    if (this.state.waypoints.length > 0) {
+      this.latLngArr = [];
+      this.directionsDisplay.setDirections({ routes: this.latLngArr });
+      this.setState({ distance: '0 MI', waypoints: [] })
+    }
   }
 
   reverseWaypoints() {
-    this.latLngArr.reverse();
-    this.renderDirections();
+    if (this.state.waypoints.length > 1) {
+      this.latLngArr.reverse();
+      this.renderDirections();
+    }
   }
 
   updateDistance(result) {
@@ -104,24 +111,53 @@ class RoutesMap extends React.Component {
   } 
 
   centerMap() {
-    const bounds = this.directionsDisplay.getDirections().routes[0].bounds;
-    const padding = {
-      bottom: 400,
-      left: 600,
-      right: 600,
-      top: 400
-    }
-
-    this.map.panToBounds(bounds, padding);
+    let bounds;
+    if (this.state.waypoints.length > 1) {
+      bounds = this.directionsDisplay.getDirections().routes[0].bounds;
+      const padding = {
+        bottom: 400,
+        left: 600,
+        right: 600,
+        top: 400
+      }
+  
+      this.map.panToBounds(bounds, padding);
+    } 
   }
 
   returnToStart() {
-    this.latLngArr.push(this.latLngArr[0]);
-    this.renderDirections();
+    if (this.state.waypoints.length > 1) {
+      this.latLngArr.push(this.latLngArr[0]);
+      this.renderDirections();
+    }
   }
 
-  test() {
-    debugger
+  // test() {
+  //   debugger
+  // }
+
+  handleSidebar(e) {
+    const sidebar = document.getElementsByClassName('routes-sidebar-container')[0]
+    console.log(Array.from(e.currentTarget.classList))
+    if (Array.from(e.currentTarget.classList).includes('btn-close')) {
+      e.currentTarget.classList.remove("fa-caret-right")
+      e.currentTarget.classList.remove('btn-close')
+      e.currentTarget.classList.add('btn-open')
+      e.currentTarget.classList.add("fa-caret-left")
+    } else {
+      e.currentTarget.classList.add('btn-close')
+      e.currentTarget.classList.add("fa-caret-right")
+      e.currentTarget.classList.remove("fa-caret-left")
+      e.currentTarget.classList.remove('btn-open')
+    }
+
+    if (Array.from(sidebar.classList).includes('close')) {
+      sidebar.classList.remove('close');
+      sidebar.classList.add('open')
+    } else {
+      sidebar.classList.add('close');
+      sidebar.classList.remove('open')
+    }
   }
 
   render() {
@@ -129,9 +165,16 @@ class RoutesMap extends React.Component {
       <div id="map-container">
         <div id="map" ref={map => this.mapNode = map}></div>
         <RoutesSidebar 
+          name={this.state.name}
+          activity={this.state.activity}
+          description={this.state.description}
           distance={this.state.distance}
           action={this.props.action}
+          creator_id={this.state.creator_id}
+          waypoints={this.state.waypoints}
+          action={this.props.action}
         />
+        <span className="fas fa-caret-left" onClick={this.handleSidebar}></span>
 
         <RoutesToolPanel 
           clearWaypoints={this.clearWaypoints}
@@ -140,7 +183,7 @@ class RoutesMap extends React.Component {
           centerMap={this.centerMap}
           returnToStart={this.returnToStart}
           distance={this.state.distance}
-          test={this.test}
+          // test={this.test}
         />
       </div>
     )

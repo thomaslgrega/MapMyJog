@@ -4,14 +4,201 @@
 
 #map-container {
   display: flex;
-  justify-content: right;
   margin: 0;
-  height: 92.5%;
+  height: 90.5%;
   width: 100%;
+  border-top: 2px solid lightgray;
+}
+
+.routes-sidebar-container {
+  position: absolute;
+  height: 90.5%;
+  background-color: white;
+  width: 300px;
+  border-right: 1px solid #999999;
+  left: 0;
+}
+
+.routes-sidebar-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-name-input, .sidebar-activity-select {
+  color: dimgray;
+  width: 250px;
+  border: 1px solid #b1b0b0;
+  border-radius: 5px;
+  padding: 8px 0;
+  margin: 10px 0 10px 15px;
+  text-indent: 8px;
+}
+
+.sidebar-activity-select {
+  padding: 9px 0px 9px 0px;
+  width: 252px;
+  font-size: 14px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.fa-sort-down {
+  // padding-bottom: 3px;
+  position: relative;
+  vertical-align: center;
+  right: 20px;
+  bottom: 2px;
+  pointer-events: none;
+}
+
+.route-form-title {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 10px 10px 15px;
+  letter-spacing: 1px;
+  background-color: whitesmoke;
+}
+
+.name-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar-description-textarea {
+  color: dimgray;
+  margin-left: 15px;
+  border-radius: 4px;
+  width: 250px;
+  border: 1px solid #b1b0b0;
+  text-indent: 5px;
+  padding-top: 2px;
+}
+
+.save-route-btn {
+  font-weight: 400;
+  font-size: 14px;
+  padding: 4px;
+  width: 120px;
+  background-color: #f48e1d;
+  color: white;
+  border-radius: 5px;
+  margin: 10px 0 20px 147px;
+  cursor: pointer;
+}
+
+.save-route-btn:hover {
+  background-color: #db7a0a;
+}
+
+.required-field {
+  color: red;
+  padding-top: 22px;
+  padding-left: 10px;
+  width: 10px;
+}
+
+.required-field-select {
+  color: red;
 }
 
 #map {
   margin: 0;
   width: 100%;
   min-height: 100%;
+}
+
+.fa-caret-left, .fa-caret-right {
+  color: #3c98d9;
+  font-size: 20px;
+  position: absolute;
+  left: 300px;
+  top: 200px;
+  background: red;
+  border-top: 1px solid #b1b0b0;
+  border-right: 1px solid #b1b0b0;
+  border-bottom: 1px solid #b1b0b0;
+  background-color: white;
+  padding: 5px 8px 5px 3px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.btn-close {
+  transition: 0.3s;
+  left: 0;
+}
+
+.btn-open {
+  transition-duration: 0.3s;
+  left: 300;
+}
+
+.close {
+  transition-duration: 0.3s;
+  left: -300px;
+}
+
+.open {
+  transition-duration: 0.3s;
+  left: 0;
+}
+
+.tool-panel {
+  position: absolute;
+  top: 200px;
+  right: 15px;
+  border: 1px black solid;
+  box-shadow: 2px 2px 8px #888888;
+}
+
+.button-panel-container {
+  background-color: whitesmoke;
+  height: 260px;
+  width: 230px;
+}
+
+.distance-title {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+
+.distance-content {
+  font-weight: 600;
+  font-size: 24px;
+  padding-left: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  letter-spacing: 1px;
+}
+
+.distance-container {
+  color: white;
+  background-color: rgba(100, 100, 101, 0.8);
+}
+
+.undo-button {
+  letter-spacing: 1px;
+  font-size: 8px;
+  width: 50px;
+  padding-top: 30px;
+  padding-bottom: 3px;
+  border: 1px gainsboro solid;
+  margin: 15px 15px 15px 15px;
+}
+
+.undo-button:hover {
+  background-image:linear-gradient(#e6e6e6, #cccccc);
+}
+
+.fa-undo-alt {
+  color: seagreen;
+  position: absolute;
+  left: 32px;
+  top: 70px;
+}
+
+.undo-container {
+  
 }

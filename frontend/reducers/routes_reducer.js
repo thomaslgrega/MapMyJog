@@ -11,7 +11,9 @@ const routesReducer = (state = {}, action) => {
     case RECEIVE_USER_ROUTES:
       return action.routes;
     case RECEIVE_ROUTE:
-      nextState[action.route.id] = action.route;
+      const routeId = Object.keys(action.route)[0]
+      nextState[routeId] = action.route[routeId];
+      nextState[routeId].waypoints = JSON.parse(nextState[routeId].waypoints);
       return nextState;
     case REMOVE_ROUTE:
       delete nextState[action.routeId];

@@ -6,12 +6,8 @@ nav.nav-bar {
   display: flex;
   justify-content: space-between;
   letter-spacing: 1px;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
 }
-
-// .nav-bar {
-//   z-index: 2;
-// }
 
 @media only screen and (min-width: 1200px) {
   nav.nav-bar {
