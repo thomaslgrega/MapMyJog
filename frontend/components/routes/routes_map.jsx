@@ -16,6 +16,7 @@ class RoutesMap extends React.Component {
     this.reverseWaypoints = this.reverseWaypoints.bind(this);
     this.centerMap = this.centerMap.bind(this);
     this.returnToStart = this.returnToStart.bind(this);
+    this.handleToolbarClick = this.handleToolbarClick.bind(this);
     // this.test = this.test.bind(this);
 
     this.latLngArr = this.state.waypoints
@@ -138,7 +139,6 @@ class RoutesMap extends React.Component {
 
   handleSidebar(e) {
     const sidebar = document.getElementsByClassName('routes-sidebar-container')[0]
-    console.log(Array.from(e.currentTarget.classList))
     if (Array.from(e.currentTarget.classList).includes('btn-close')) {
       e.currentTarget.classList.remove("fa-caret-right")
       e.currentTarget.classList.remove('btn-close')
@@ -157,6 +157,21 @@ class RoutesMap extends React.Component {
     } else {
       sidebar.classList.add('close');
       sidebar.classList.remove('open')
+    }
+  }
+
+  handleToolbarClick(e) {
+    const arrow = document.getElementsByClassName('tools-down-arrow')[0]
+    const toolbar = document.getElementsByClassName('button-panel-container')[0]
+    // debugger
+    if (Array.from(toolbar.classList).includes('hide-toolbar')) {
+      arrow.classList.remove('fa-chevron-left')
+      arrow.classList.add('fa-chevron-down')
+      toolbar.classList.remove('hide-toolbar');
+    } else {
+      arrow.classList.add('fa-chevron-left')
+      arrow.classList.remove('fa-chevron-down')
+      toolbar.classList.add('hide-toolbar');
     }
   }
 
@@ -183,6 +198,7 @@ class RoutesMap extends React.Component {
           centerMap={this.centerMap}
           returnToStart={this.returnToStart}
           distance={this.state.distance}
+          handleToolbarClick={this.handleToolbarClick}
           // test={this.test}
         />
       </div>

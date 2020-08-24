@@ -61,7 +61,7 @@ class RoutesSidebar extends React.Component {
               <option value="Sport/ Other Activity">Sport / Other Activity</option>
               <option value="Hike">Hike</option>
             </select>
-            <span className="fas fa-sort-down"></span>
+            <span className="fas fa-sort-down select-down-arrow"></span>
             <span className='required-field-select'>*</span>
           </div>
           <button className="save-route-btn">SAVE ROUTE</button>

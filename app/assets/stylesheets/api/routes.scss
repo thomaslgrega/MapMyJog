@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.fa-sort-down {
+.select-down-arrow {
   // padding-bottom: 3px;
   position: relative;
   vertical-align: center;
@@ -153,7 +153,7 @@
 
 .button-panel-container {
   background-color: whitesmoke;
-  height: 260px;
+  height: 250px;
   width: 230px;
 }
 
@@ -166,6 +166,7 @@
 
 .distance-content {
   font-weight: 600;
+  width: 230px;
   font-size: 24px;
   padding-left: 3px;
   padding-top: 3px;
@@ -178,27 +179,155 @@
   background-color: rgba(100, 100, 101, 0.8);
 }
 
-.undo-button {
+.undo-span {
   letter-spacing: 1px;
-  font-size: 8px;
-  width: 50px;
-  padding-top: 30px;
-  padding-bottom: 3px;
-  border: 1px gainsboro solid;
-  margin: 15px 15px 15px 15px;
+  font-size: 12px;
+  padding-left: 24px;
 }
 
-.undo-button:hover {
+.undo-container:hover, .center-container:hover, 
+.reverse-container:hover, .return-container:hover,
+.clear-container:hover {
   background-image:linear-gradient(#e6e6e6, #cccccc);
 }
 
 .fa-undo-alt {
-  color: seagreen;
+  font-size: 30px;
   position: absolute;
-  left: 32px;
+  left: 47px;
   top: 70px;
+  background: -webkit-linear-gradient(darkseagreen, seagreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-compress-arrows-alt {
+  position: absolute;
+  font-size: 30px;
+  right: 52px;
+  top: 70px;
+  background: -webkit-linear-gradient(darkseagreen, seagreen, darkseagreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-circle-notch {
+  position: absolute;
+  font-size: 30px;
+  background: -webkit-linear-gradient(darkseagreen, seagreen, darkseagreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  right: 53px;
+  top: 160px;
+}
+
+.fa-times {
+  position: absolute;
+  font-size: 30px;
+  background: -webkit-linear-gradient(#ff4d4d, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  right: 107px;
+  bottom: 32px;
 }
 
 .undo-container {
-  
+  display: inline-block;
+  width: 35%;
+  padding-top: 50px;
+  padding-bottom: 3px;
+  border: 1px gainsboro solid;
+  margin: 0 15px 15px 20px;
+  margin-top: 15px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.reverse-container {
+  display: inline-block;
+  width: 35%;
+  padding-top: 50px;
+  padding-bottom: 3px;
+  border: 1px gainsboro solid;
+  border-radius: 2px;
+  margin: 0 20px 0 20px;
+  cursor: pointer;
+}
+
+.return-container {
+  display: inline-block;
+  width: 35%;
+  padding-top: 50px;
+  padding-bottom: 3px;
+  border: 1px gainsboro solid;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.clear-container {
+  display: inline-block;
+  width: 80%;
+  border: 1px gainsboro solid;
+  border-radius: 2px;
+  padding-top: 25px;
+  margin-top: 15px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.center-span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 15px; 
+}
+
+.reverse-span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 13px;
+}
+
+.return-span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 15px;
+}
+
+.clear-span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 70px;
+}
+
+.center-container {
+  display: inline-block;
+  width: 35%;
+  padding-top: 50px;
+  padding-bottom: 3px;
+  border: 1px gainsboro solid;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+
+.fa-exchange-alt {
+  position: absolute;
+  left: 46px;
+  font-size: 30px;
+  top: 160px;
+  background: -webkit-linear-gradient(darkseagreen, seagreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tools-down-arrow {
+  position: absolute;
+  font-size: 30px;
+  right: 15px;
+  top: 6px;
+  color: rgb(83, 83, 83);
+  cursor: pointer;
+}
+
+.hide-toolbar {
+  display: none;
 }
