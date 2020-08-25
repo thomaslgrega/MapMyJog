@@ -27,13 +27,18 @@ class Api::RoutesController < ApplicationController
   def destroy
     route = Route.find_by(id: params[:id])
     @user = current_user
-    route.destroy if @user.id === route.creator_id
+    if @user.id === route.creator_id 
+      route.destroy 
+    else
+      render json: ['This isn\'t your route!'], status: 422
+    end
     render "/api/users/show"
   end
 
   def update
     @route = Route.find_by(id: params[:id])
-    if @route.update(route_params)
+    # debugger
+    if @route && @route.update(route_params)
       render :show
     else
       render json: @route.errors.full_messages, status: 422
@@ -42,6 +47,6 @@ class Api::RoutesController < ApplicationController
 
   private
   def route_params
-    params.require(:route).permit(:name, :description, :distance, :waypoints)
+    params.require(:route).permit(:name, :description, :distance, :waypoints, :creator_id, :activity)
   end
 end

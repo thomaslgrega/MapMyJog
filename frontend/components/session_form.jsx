@@ -32,15 +32,15 @@ class SessionForm extends React.Component {
   handleDemoSubmit(e) {
     e.preventDefault();
     this.props.loginDemo()
-      .then(() => this.props.history.push('/'))
+      // .then(() => this.props.history.push('/'))
   }
 
   parseDate() {
     const combinedBirthdate = `${this.state.day}-${this.state.month}-${this.state.year}`;
     this.setState({
       date_of_birth: combinedBirthdate
-    }, () => this.props.processForm(this.state)
-        .then(() => this.props.history.push('/')));
+    }, () => this.props.processForm(this.state))
+        // .then(() => this.props.history.push('/')));
   }
 
   update(field) {

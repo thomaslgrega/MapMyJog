@@ -17,7 +17,6 @@ class RoutesMap extends React.Component {
     this.centerMap = this.centerMap.bind(this);
     this.returnToStart = this.returnToStart.bind(this);
     this.handleToolbarClick = this.handleToolbarClick.bind(this);
-    // this.test = this.test.bind(this);
 
     this.latLngArr = this.state.waypoints
   }
@@ -40,7 +39,7 @@ class RoutesMap extends React.Component {
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    this.map.addListener('click', this.handleMapClick)
+    this.map.addListener('click', this.handleMapClick);
   }
 
   renderDirections() {
@@ -51,7 +50,6 @@ class RoutesMap extends React.Component {
     if (!this.directionsDisplay) {
       this.directionsDisplay = new google.maps.DirectionsRenderer({ map: this.map, preserveViewport: true });
     }
-
     const midLatLngs = this.latLngArr.slice(1, this.latLngArr.length - 1);
     const wpts = midLatLngs.map(latLng => ({
       location: latLng,
@@ -133,10 +131,6 @@ class RoutesMap extends React.Component {
     }
   }
 
-  // test() {
-  //   debugger
-  // }
-
   handleSidebar(e) {
     const sidebar = document.getElementsByClassName('routes-sidebar-container')[0]
     if (Array.from(e.currentTarget.classList).includes('btn-close')) {
@@ -163,7 +157,7 @@ class RoutesMap extends React.Component {
   handleToolbarClick(e) {
     const arrow = document.getElementsByClassName('tools-down-arrow')[0]
     const toolbar = document.getElementsByClassName('button-panel-container')[0]
-    // debugger
+
     if (Array.from(toolbar.classList).includes('hide-toolbar')) {
       arrow.classList.remove('fa-chevron-left')
       arrow.classList.add('fa-chevron-down')
@@ -199,7 +193,6 @@ class RoutesMap extends React.Component {
           returnToStart={this.returnToStart}
           distance={this.state.distance}
           handleToolbarClick={this.handleToolbarClick}
-          // test={this.test}
         />
       </div>
     )

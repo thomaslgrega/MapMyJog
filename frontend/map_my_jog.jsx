@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
+import { createFriendship, deleteFriendship, requestFriends } from './actions/friendship_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // test
-    // window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    // window.requestRoutes = requestRoutes;
+    window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    window.requestRoutes = requestRoutes;
     // window.requestRoute = requestRoute;
     // window.createRoute = createRoute;
     // window.updateRoute = updateRoute;
     // window.deleteRoute = deleteRoute;
+    window.createFriend = createFriendship;
+    window.deleteFriend = deleteFriendship;
+    window.requestFriends = requestFriends;
   // test
 
   const root = document.getElementById('root');

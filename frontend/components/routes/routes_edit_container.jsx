@@ -4,8 +4,18 @@ import RoutesMap from './routes_map';
 import { requestRoute, updateRoute } from '../../actions/routes_actions';
 
 class EditRouteMap extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   componentDidMount() {
-    this.props.requestRoute(this.props.match.params.routeId)
+    this.props.requestRoute(this.props.match.params.routeId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.routeId !== this.props.match.params.routeId) {
+      this.props.requestRoute(this.props.match.params.routeId);
+    }
   }
 
   render() {

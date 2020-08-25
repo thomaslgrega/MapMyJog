@@ -11,13 +11,17 @@ class RoutesIndex extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        {
-          this.props.routes.map(route => <RouteIndexItem key={route.id} route={route} />)
-        }
-      </div>
-    )
+    if (!this.props.routes) {
+      return null
+    } else {
+      return (
+        <div>
+          {
+            this.props.routes.map(route => <RouteIndexItem key={route.id} route={route} />)
+          }
+        </div>
+      )
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class RoutesSidebar extends React.Component {
   constructor(props) {
@@ -9,12 +10,10 @@ class RoutesSidebar extends React.Component {
       activity: this.props.activity,
       description: this.props.description,
       waypoints: this.props.waypoints,
-      distance: this.props.distance
     }
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.anotherTest = this.anotherTest.bind(this);
   }
 
   update(field) {
@@ -23,23 +22,23 @@ class RoutesSidebar extends React.Component {
     }
   }
 
-  // anotherTest(e) {
-  //   e.preventDefault()
-  //   console.log(this.state)
-  // }
-  
   handleSubmit(e) {
     e.preventDefault();
-    const waypointsJSON = JSON.stringify(this.state.waypoints)
-    this.setState({
-      waypoints: waypointsJSON
-    }, this.props.action(this.state))
+    if (this.props.waypoints.length > 1) {
+      const waypointsJSON = JSON.stringify(this.state.waypoints)
+      this.setState({
+        waypoints: waypointsJSON,
+        distance: this.props.distance
+      }, () => this.props.action(this.state)
+        .then(() => this.props.history.push('/')));
+    } else {
+      alert('You must have at least two points on the map to save a route.')
+    }
   }
 
   render() {
     return (
       <div className='routes-sidebar-container'>
-        {/* <button onClick={this.anotherTest}>ANOTHER TEST</button> */}
         <h4 className="route-form-title">Route Details</h4>
         <form onSubmit={this.handleSubmit}>
           <div className="name-input-container">
@@ -78,4 +77,4 @@ class RoutesSidebar extends React.Component {
   }
 }
 
-export default RoutesSidebar;
+export default withRouter(RoutesSidebar);
