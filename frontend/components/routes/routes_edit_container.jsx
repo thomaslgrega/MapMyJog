@@ -9,6 +9,7 @@ class EditRouteMap extends React.Component {
   }
 
   componentDidMount() {
+    // debugger
     this.props.requestRoute(this.props.match.params.routeId);
   }
 

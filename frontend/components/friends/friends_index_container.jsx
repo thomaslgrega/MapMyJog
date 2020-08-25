@@ -1,10 +1,9 @@
 import FriendsIndex from './friends_index';
 import { connect } from 'react-redux';
-import { requestFriends, deleteFriendship } from '../../actions/friendship_actions';
+import { requestFriends, deleteFriendship } from '../../actions/friends_actions';
 import { withRouter } from 'react-router-dom';
 
 const mSTP = ({ entities, session }) => {
-  
   let friendships;
   if (entities.friends.friendships) {
     friendships = Object.values(entities.friends.friendships);

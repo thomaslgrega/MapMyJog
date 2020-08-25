@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
-import { createFriendship, deleteFriendship, requestFriends } from './actions/friendship_actions';
+import { createFriendship, deleteFriendship, requestFriends } from './actions/friends_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

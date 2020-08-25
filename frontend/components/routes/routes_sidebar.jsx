@@ -5,6 +5,7 @@ class RoutesSidebar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: this.props.id,
       creator_id: this.props.creator_id,
       name: this.props.name,
       activity: this.props.activity,

@@ -37,11 +37,15 @@ class Api::RoutesController < ApplicationController
 
   def update
     @route = Route.find_by(id: params[:id])
-    # debugger
-    if @route && @route.update(route_params)
-      render :show
+
+    if @route
+      if @route.update(route_params)
+        render :show
+      else
+        render json: @route.errors.full_messages, status: 422
+      end
     else
-      render json: @route.errors.full_messages, status: 422
+      render json: ['Route could not be found'], status: 404
     end
   end
 

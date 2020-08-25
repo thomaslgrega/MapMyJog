@@ -7,6 +7,9 @@ class RoutesMap extends React.Component {
     super(props)
 
     this.state = this.props.route;
+    if (this.state.waypoints.length > 0) {
+      this.state.waypoints = JSON.parse(this.state.waypoints);
+    }
 
     this.renderDirections = this.renderDirections.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
@@ -17,7 +20,7 @@ class RoutesMap extends React.Component {
     this.centerMap = this.centerMap.bind(this);
     this.returnToStart = this.returnToStart.bind(this);
     this.handleToolbarClick = this.handleToolbarClick.bind(this);
-
+    
     this.latLngArr = this.state.waypoints
   }
 
@@ -174,6 +177,7 @@ class RoutesMap extends React.Component {
       <div id="map-container">
         <div id="map" ref={map => this.mapNode = map}></div>
         <RoutesSidebar 
+          id={this.state.id}
           name={this.state.name}
           activity={this.state.activity}
           description={this.state.description}

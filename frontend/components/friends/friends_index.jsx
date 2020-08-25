@@ -11,6 +11,7 @@ class FriendsIndex extends React.Component {
     this.props.requestFriends(this.props.currentUser.id)
   }
 
+
   handleDelete(friendshipId) {
     this.props.deleteFriendship(friendshipId)
       // .then(this.props.history.push('/dashboard'))
