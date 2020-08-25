@@ -8,9 +8,9 @@ const removeFriend = friendshipId => ({
   friendshipId
 });
 
-const removeFriend = friendshipId => ({
-  type: REMOVE_FRIENDSHIP,
-  friendshipId
+const receiveFriendship = friendship => ({
+  type: RECEIVE_FRIENDSHIP,
+  friendship
 });
 
 export const deleteFriendship = friendshipId => dispatch => {
