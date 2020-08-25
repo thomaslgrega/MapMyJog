@@ -1,6 +1,7 @@
 import FriendsIndex from './friends_index';
 import { connect } from 'react-redux';
 import { requestFriends, deleteFriendship } from '../../actions/friendship_actions';
+import { withRouter } from 'react-router-dom';
 
 const mSTP = ({ entities, session }) => {
   
@@ -30,4 +31,4 @@ const mDTP = dispatch => ({
   deleteFriendship: friendshipId => dispatch(deleteFriendship(friendshipId)),
 });
 
-export default connect(mSTP, mDTP)(FriendsIndex);
+export default withRouter(connect(mSTP, mDTP)(FriendsIndex));
