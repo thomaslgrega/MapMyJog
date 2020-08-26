@@ -5,11 +5,9 @@ const sessionReducer = (state = { id: null }, action) => {
   const nextState = {...state};
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      debugger
       const userId = parseInt(Object.keys(action.currentUser)[0])
       return { id: userId }
     case LOGOUT_CURRENT_USER:
-      debugger
       nextState.id = null;
       return nextState;
     default:
