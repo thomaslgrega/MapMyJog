@@ -71,6 +71,7 @@ class RoutesMap extends React.Component {
     }
 
     this.directionsService.route(request, (result, status) => {
+      debugger
       if (status === 'OK') {
         this.directionsDisplay.setDirections(result);
         this.updateDistance(result);

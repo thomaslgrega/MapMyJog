@@ -27,17 +27,22 @@ class Api::RoutesController < ApplicationController
   def destroy
     route = Route.find_by(id: params[:id])
     @user = current_user
-    if @user.id === route.creator_id 
-      route.destroy 
+
+    if route 
+      if @user.id === route.creator_id 
+        route.destroy 
+        render "/api/users/show"
+      else
+        render json: ['This isn\'t your route!'], status: 422
+      end
     else
-      render json: ['This isn\'t your route!'], status: 422
+      render json: ['Route doesn\'t exist'], status: 404
     end
-    render "/api/users/show"
   end
 
   def update
     @route = Route.find_by(id: params[:id])
-
+    
     if @route
       if @route.update(route_params)
         render :show

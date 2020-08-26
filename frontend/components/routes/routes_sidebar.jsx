@@ -31,7 +31,7 @@ class RoutesSidebar extends React.Component {
         waypoints: waypointsJSON,
         distance: this.props.distance
       }, () => this.props.action(this.state)
-        .then(() => this.props.history.push('/')));
+        .then(() => this.props.history.push('/dashboard/routes')));
     } else {
       alert('You must have at least two points on the map to save a route.')
     }

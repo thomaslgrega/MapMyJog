@@ -14,6 +14,7 @@ import Dashboard from './dashboard/dashboard';
 import FriendsIndexContainer from './friends/friends_index_container';
 import FindFriends from './friends/find_friends';
 import UsersShowContainer from './users/users_show_container';
+import FriendsTab from './friends/friends_tab';
 
 const App = () => {
   return (
@@ -22,18 +23,18 @@ const App = () => {
         <Link to='/' className='nav-logo' onClick={clearSessionErrors}>MAPMYJOG</Link>
         <Route path='/' component={NavBarContainer} />
       </nav>
-      <ProtectedRoute path='/dashboard' component={Dashboard} />
-      {/* <Switch> */}
+      <div className='dashboard-container'>
+        <ProtectedRoute path='/dashboard' component={Dashboard} />
         <ProtectedRoute path='/dashboard/routes' component={RoutesIndexContainer} />
-        <AuthRoute path='/login' component={LoginFormContainer} />
-        <AuthRoute path='/signup' component={SignupFormContainer} />
-        <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
-        <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
-        <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
         <ProtectedRoute exact path='/dashboard/friends' component={FriendsIndexContainer} />
         <ProtectedRoute path='/dashboard/friends/find' component={FindFriends} />
-        <AuthRoute exact path='/' component={SplashContainer} />
-      {/* </Switch> */}
+      </div>
+      <AuthRoute path='/login' component={LoginFormContainer} />
+      <AuthRoute path='/signup' component={SignupFormContainer} />
+      <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
+      <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
+      <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
+      <AuthRoute exact path='/' component={SplashContainer} />
     </div>
   )
 };

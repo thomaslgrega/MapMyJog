@@ -24,20 +24,40 @@ class FriendsIndex extends React.Component {
       friendships = []
     }
 
-    return (
-      <div>
-        <h1>My Friends</h1>
+    let comp;
+    if (this.props.friendships.length === 0) {
+      comp = <div className='friends-content-container'>
+        You have not added any friends yet. Click the Find Friends tab above to get started.
+      </div>
+    } else {
+      comp = <div className='friends-content-container'>
         {
           this.props.friends.map((friend, i) => (
-            <FriendsIndexItem 
-              key={friend.id} 
+            <FriendsIndexItem
+              key={friend.id}
               friend={friend}
               friendshipId={friendships[i]}
-              deleteFriendship={this.handleDelete} 
+              deleteFriendship={this.handleDelete}
             />)
           )
         }
       </div>
+    }
+
+    return (
+      // <div className='friends-content-container'>
+      //   {
+      //     this.props.friends.map((friend, i) => (
+      //       <FriendsIndexItem
+      //         key={friend.id} 
+      //         friend={friend}
+      //         friendshipId={friendships[i]}
+      //         deleteFriendship={this.handleDelete}
+      //       />)
+      //     )
+      //   }
+      // </div>
+      comp
     )
   }
 }
