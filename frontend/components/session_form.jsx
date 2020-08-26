@@ -126,7 +126,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
     return (
       <div className="form-container">
         {this.props.navLink}

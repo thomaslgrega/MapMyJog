@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import RoutesMap from './routes_map';
-import { requestRoute, updateRoute } from '../../actions/routes_actions';
+import { requestRoute, updateRoute, clearRouteErrors } from '../../actions/routes_actions';
 
 class EditRouteMap extends React.Component {
   constructor(props) {
@@ -20,25 +20,29 @@ class EditRouteMap extends React.Component {
   }
 
   render() {
-    const { action, route } = this.props;
+    const { action, route, errors, clearRouteErrors } = this.props;
 
     if (!route) return null;
     return (
       <RoutesMap
         action={action}
         route={route}
+        errors={errors}
+        clearRouteErrors={clearRouteErrors}
       />
     );
   }
 }
 
 const mSTP = (state, ownProps) => ({
-  route: state.entities.routes[ownProps.match.params.routeId]
+  route: state.entities.routes[ownProps.match.params.routeId],
+  errors: state.errors.routes
 });
 
 const mDTP = dispatch => ({
   requestRoute: routeId => dispatch(requestRoute(routeId)),
-  action: route => dispatch(updateRoute(route))
+  action: route => dispatch(updateRoute(route)),
+  clearRouteErrors: () => dispatch(clearRouteErrors())
 });
 
 export default connect(mSTP, mDTP)(EditRouteMap);

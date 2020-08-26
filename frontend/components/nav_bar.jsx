@@ -21,7 +21,7 @@ const NavBar = props => {
       </div>
     </div>
   );
-
+  // debugger
   return props.currentUser ? loggedInBar() : sessionLinks();
 };
 

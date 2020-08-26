@@ -331,3 +331,12 @@
 .hide-toolbar {
   display: none;
 }
+
+.route-errors {
+  color: red;
+  padding: 20px 25px 0 20px;
+}
+
+.route-errors li {
+  padding-bottom: 4px;
+}

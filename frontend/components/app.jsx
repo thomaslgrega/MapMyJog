@@ -13,6 +13,7 @@ import RoutesIndexContainer from './routes/routes_index_container';
 import Dashboard from './dashboard/dashboard';
 import FriendsIndexContainer from './friends/friends_index_container';
 import FindFriends from './friends/find_friends';
+import UsersShowContainer from './users/users_show_container';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <AuthRoute path='/login' component={LoginFormContainer} />
         <AuthRoute path='/signup' component={SignupFormContainer} />
         <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
+        <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
         <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
         <ProtectedRoute exact path='/dashboard/friends' component={FriendsIndexContainer} />
         <ProtectedRoute path='/dashboard/friends/find' component={FindFriends} />

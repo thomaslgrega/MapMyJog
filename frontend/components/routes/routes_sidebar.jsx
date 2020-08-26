@@ -73,6 +73,9 @@ class RoutesSidebar extends React.Component {
           >
           </textarea>
         </form>
+        <ul className='route-errors'>
+          {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+        </ul>
       </div>
     )
   }
