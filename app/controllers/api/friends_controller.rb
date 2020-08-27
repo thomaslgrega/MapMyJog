@@ -9,9 +9,9 @@ class Api::FriendsController < ApplicationController
   def create
     @friend = Friend.new(friend_params)
     @friend.user_id = current_user.id
-
+    # debugger
     if @friend.save
-      render :index
+      render :show
     else
       render json: @friend.errors.full_messages, status: 422
     end

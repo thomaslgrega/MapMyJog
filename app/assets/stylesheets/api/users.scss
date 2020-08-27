@@ -1,3 +1,49 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.user-basic-info {
+  padding-top: 60px;
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.user-show-avatar {
+  font-size: 80px;
+  padding: 20px 30px 20px 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+.next-to-avatar-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  margin: auto 0;
+}
+
+.show-page-fullname {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.add-friend-btn {
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: #3e9be9;
+  color: white;
+  width: 135px;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 9px 5px;
+  text-align: center;
+  cursor: pointer;
+}

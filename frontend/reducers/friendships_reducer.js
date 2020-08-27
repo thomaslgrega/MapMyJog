@@ -8,10 +8,12 @@ const friendshipsReducer = (state = {}, action) => {
   const nextState = {...state};
   switch (action.type) {
     case RECEIVE_FRIENDSHIP:
+      debugger
       const friendshipId = Object.keys(action.friendship)[0];
-      nextState[friendshipId] = action.friend[friendshipId];
+      nextState[friendshipId] = action.friendship[friendshipId];
       return nextState;
     case REMOVE_FRIENDSHIP:
+      debugger
       delete nextState[action.friendshipId];
       return nextState;
     default:

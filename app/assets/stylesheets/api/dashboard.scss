@@ -3,10 +3,6 @@
   margin: 0 auto;
 }
 
-.dashboard-nav {
-
-}
-
 // .sliding-underline {
 //   color: black;
 //   position: absolute;
@@ -125,11 +121,16 @@
   margin: auto;
 }
 
-.fa-running {
+.friend-index-logo {
   color: darkgray;
   font-size: 30px;
   border: lightgray 1px solid;
   padding: 20px 25px;
+}
+
+.friend-index-logo:hover {
+  color: gray;
+  border: gray 1px solid;
 }
 
 .friend-index-item {
@@ -169,6 +170,11 @@
 
 .route-link {
   color: steelblue;
+}
+
+.route-link:hover, .table-edit-link:hover, 
+.table-delete-link:hover, .remove-friend-btn:hover {
+  color: rgb(40, 85, 122);
 }
 
 .fa-users {

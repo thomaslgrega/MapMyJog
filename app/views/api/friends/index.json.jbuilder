@@ -9,7 +9,7 @@ end
 json.friendships do 
   @friendships.each do |friendship|
     json.set! friendship.id do
-      json.extract! friendship, :id
+      json.extract! friendship, :id, :friend_id
     end
   end
 end

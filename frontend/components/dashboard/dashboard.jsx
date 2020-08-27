@@ -9,7 +9,7 @@ const Dashboard = props => {
       <div className='dashboard-links-container'>
         <div className='routes-friends-link-container'>
           <NavLink className='dashboard-links' activeClassName='dashboard-active' exact to='/dashboard/routes'>My Routes</NavLink>
-          <NavLink className='dashboard-links' activeClassName='dashboard-active' exact to='/dashboard/friends'>Friends</NavLink>
+          <NavLink className='dashboard-links' activeClassName='dashboard-active' to='/dashboard/friends'>Friends</NavLink>
           {/* <hr className='sliding-underline'/> */}
         </div>
         <NavLink className='dashboard-create-link' to='/routes/new'>Create Route</NavLink>

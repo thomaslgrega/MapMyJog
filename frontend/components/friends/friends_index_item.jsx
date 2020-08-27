@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const FriendsIndexItem = props => {
   return (
     <div className='friend-index-item'>
-      <Link className="fas fa-running" to={`/users/${props.friend.id}`}></Link>
+      <Link className="fas fa-running friend-index-logo" to={`/users/${props.friend.id}`}></Link>
       <div className='friend-content'>
         <div className='full-name-container'>
           <span to={`/users/${props.friend.id}`}>{props.friend.first_name}</span>
