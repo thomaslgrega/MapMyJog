@@ -12,7 +12,7 @@ import RoutesEditContainer from './routes/routes_edit_container';
 import RoutesIndexContainer from './routes/routes_index_container';
 import Dashboard from './dashboard/dashboard';
 import FriendsIndexContainer from './friends/friends_index_container';
-import FindFriends from './friends/find_friends';
+import FindFriendsContainer from './friends/find_friends';
 import UsersShowContainer from './users/users_show_container';
 import FriendsTab from './friends/friends_tab';
 
@@ -27,7 +27,7 @@ const App = () => {
         <ProtectedRoute path='/dashboard' component={Dashboard} />
         <ProtectedRoute path='/dashboard/routes' component={RoutesIndexContainer} />
         <ProtectedRoute exact path='/dashboard/friends' component={FriendsIndexContainer} />
-        <ProtectedRoute path='/dashboard/friends/find' component={FindFriends} />
+        <ProtectedRoute path='/dashboard/friends/find' component={FindFriendsContainer} />
       </div>
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />

@@ -1,9 +1,9 @@
 import React from 'react';
-// import { requestRandomUsers: }
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const FriendsTab = props => {
+  // debugger
   return (
     <div className='friends-tab-nav'>
       <NavLink className="fas fa-users" exact to='/dashboard/friends'></NavLink>
@@ -14,14 +14,4 @@ const FriendsTab = props => {
   )
 }
 
-// const mSTP = ({ entities }) => ({
-//   friendships: entities.friendships
-// });
-
-// const mDTP = dispatch => ({
-//   requestFriends: userId => dispatch(requestFriends(userId)),
-//   requestRandomUsers: () => dispatch(requestRandomUsers())
-// });
-
-// connect
 export default FriendsTab;

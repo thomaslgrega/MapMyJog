@@ -11,3 +11,10 @@ export const fetchFriends = () => {
     method: 'GET'
   })
 };
+
+export const fetchRandomUsers = () => {
+  return $.ajax({
+    url: `api/users/random`,
+    method: 'GET'
+  })
+};

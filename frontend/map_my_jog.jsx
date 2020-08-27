@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
 import { createFriendship, deleteFriendship, requestFriends } from './actions/friends_actions';
 import { fetchFriends } from './util/user_api_util';
-import { requestUserFriends } from './actions/user_actions';
+import { requestUserFriends, requestRandomUsers } from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.createFriend = createFriendship;
     // window.deleteFriend = deleteFriendship;
     // window.requestFriends = requestFriends;
+    window.requestRandomUsers = requestRandomUsers;
     window.fetchFriends = fetchFriends
   // test
 

@@ -17,12 +17,17 @@ class Api::UsersController < ApplicationController
     render :index
   end
   
+  def random
+    @users = User.first(10)
+    render :random
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     if @user
       render :show
     else
-      render json ['User could not be found'], status: 404
+      render json: ['User could not be found'], status: 404
     end
   end
 
