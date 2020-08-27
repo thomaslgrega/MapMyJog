@@ -4,6 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
 import { createFriendship, deleteFriendship, requestFriends } from './actions/friends_actions';
+import { fetchFriends } from './util/user_api_util';
+import { requestUserFriends } from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -23,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // test
-    // window.dispatch = store.dispatch;
-    // window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.requestUserFriends = requestUserFriends;
     // window.requestRoutes = requestRoutes;
     // window.requestRoute = requestRoute;
     // window.createRoute = createRoute;
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.createFriend = createFriendship;
     // window.deleteFriend = deleteFriendship;
     // window.requestFriends = requestFriends;
+    window.fetchFriends = fetchFriends
   // test
 
   const root = document.getElementById('root');

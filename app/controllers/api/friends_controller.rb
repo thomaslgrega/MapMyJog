@@ -1,15 +1,14 @@
 class Api::FriendsController < ApplicationController
   def index
     @friendships = Friend.where(user_id: params[:user_id])
-    friend_ids = @friendships.map { |friendship| friendship.friend_id }
-    @friends = User.find(friend_ids)
-    render "api/friends/index"
+    # friend_ids = @friendships.map { |friendship| friendship.friend_id }
+    # @friends = User.find(friend_ids)
+    render :index
   end 
 
   def create
     @friend = Friend.new(friend_params)
     @friend.user_id = current_user.id
-    # debugger
     if @friend.save
       render :show
     else
@@ -31,5 +30,4 @@ class Api::FriendsController < ApplicationController
   def friend_params
     params.require(:friend).permit(:user_id, :friend_id)
   end
-
 end

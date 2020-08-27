@@ -1,8 +1,7 @@
 import React from 'react';
-import { ProtectedRoute } from '../../util/route_util';
-import FindFriends from './find_friends';
-import FriendsIndexContainer from './friends_index_container';
+// import { requestRandomUsers: }
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const FriendsTab = props => {
   return (
@@ -15,4 +14,14 @@ const FriendsTab = props => {
   )
 }
 
+// const mSTP = ({ entities }) => ({
+//   friendships: entities.friendships
+// });
+
+// const mDTP = dispatch => ({
+//   requestFriends: userId => dispatch(requestFriends(userId)),
+//   requestRandomUsers: () => dispatch(requestRandomUsers())
+// });
+
+// connect
 export default FriendsTab;

@@ -24,6 +24,10 @@ class UserShow extends React.Component {
 
   addFriendButton() {
     const { friendships, user } = this.props;
+    if (this.props.currentUser.id === user.id) {
+      return null;
+    }
+
     let friendshipId;
     for (let key in friendships) {
       if (friendships[key].friend_id === user.id) {
@@ -52,7 +56,6 @@ class UserShow extends React.Component {
           <div className='next-to-avatar-container'>
             <span className='show-page-fullname'>{user.first_name} {user.last_name}</span>
             {this.addFriendButton()}
-            {/* <span className='add-friend-btn' onClick={this.handleAddFriend}>ADD FRIEND</span> */}
           </div>
         </div>
         <div>

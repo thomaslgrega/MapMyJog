@@ -19,7 +19,7 @@
   font-size: 80px;
   padding: 20px 30px 20px 30px;
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: rgb(231, 230, 230);
 }
 
 .next-to-avatar-container {
@@ -35,6 +35,24 @@
   margin-bottom: 15px;
 }
 
+.already-friended-btn {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: black;
+  width: 135px;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 9px 5px;
+  text-align: center;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.already-friended-btn:hover {
+  background-color: gray;
+  transition-duration: 0.2s;
+}
+
 .add-friend-btn {
   font-size: 14px;
   letter-spacing: 1px;
@@ -46,4 +64,9 @@
   padding: 9px 5px;
   text-align: center;
   cursor: pointer;
+}
+
+.add-friend-btn:hover {
+  background-color: #277dc4;
+  transition-duration: 0.2s;
 }

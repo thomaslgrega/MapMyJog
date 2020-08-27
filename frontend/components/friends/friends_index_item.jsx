@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FriendsIndexItem = props => {
-  return (
-    <div className='friend-index-item'>
-      <Link className="fas fa-running friend-index-logo" to={`/users/${props.friend.id}`}></Link>
-      <div className='friend-content'>
-        <div className='full-name-container'>
-          <span to={`/users/${props.friend.id}`}>{props.friend.first_name}</span>
-          <span>{props.friend.last_name}</span>
-        </div>
-        {/* <button onClick={() => { window.location.reload(false); props.deleteFriendship(props.friendshipId.id)}}>Delete friend</button> */}
-        <span className='remove-friend-btn' onClick={() => { window.location.reload(false); props.deleteFriendship(props.friendshipId.id) }}>unfriend</span>
-        {/* <span className="fas fa-times-circle" onClick={() => { window.location.reload(false); props.deleteFriendship(props.friendshipId.id) }}></span> */}
+class FriendsIndexItem extends React.Component {
 
+  render() {
+    const friend = this.props.users[this.props.friendship.friend_id]
+    if (!friend) {
+      return null
+    }
+
+    return (
+      <div className='friend-index-item'>
+        <Link className="fas fa-running friend-index-logo" to={`/users/${friend.id}`}></Link>
+        <div className='friend-content'>
+          <div className='full-name-container'>
+            <span to={`/users/${friend.id}`}>{friend.first_name}</span>
+            <span>{friend.last_name}</span>
+          </div>
+          <span className='remove-friend-btn' onClick={() => this.props.deleteFriendship(this.props.friendship.id)}>unfriend</span>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default FriendsIndexItem;

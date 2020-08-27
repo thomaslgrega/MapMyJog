@@ -8,6 +8,14 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_messages, status: 422
     end
   end
+
+  def index
+    user_id = current_user.id
+    friendships = Friend.where("user_id = ?", user_id)
+    friend_ids = friendships.map { |friendship| friendship.friend_id }
+    @friends = User.find(friend_ids)
+    render :index
+  end
   
   def show
     @user = User.find_by(id: params[:id])

@@ -1,5 +1,6 @@
 import React from 'react';
 import FriendsIndexItem from './friends_index_item';
+import friends_index_container from './friends_index_container';
 
 class FriendsIndex extends React.Component {
   constructor(props) {
@@ -8,18 +9,19 @@ class FriendsIndex extends React.Component {
     this.handleDelete = this.handleDelete.bind(this)
   }
   componentDidMount() {
-    this.props.requestFriends(this.props.currentUser.id)
+    const { currentUser } = this.props
+    this.props.requestFriends(currentUser.id)
+    this.props.requestUserFriends(currentUser.id)
   }
 
   handleDelete(friendshipId) {
     this.props.deleteFriendship(friendshipId)
-      // .then(this.props.history.push('/dashboard'))
   }
 
   render() {
     let friendships;
     if (this.props.friendships) {
-      friendships = this.props.friendships
+      friendships = Object.values(this.props.friendships)
     } else {
       friendships = []
     }
@@ -32,33 +34,30 @@ class FriendsIndex extends React.Component {
     } else {
       comp = <div className='friends-content-container'>
         {
-          this.props.friends.map((friend, i) => (
+          friendships.map((friendship, i) => (
             <FriendsIndexItem
-              key={friend.id}
-              friend={friend}
-              friendshipId={friendships[i]}
+              key={friendship.id}
+              friendship={friendship}
               deleteFriendship={this.handleDelete}
+              requestUserFriends={this.props.requestUserFriends}
+              users={this.props.users}
             />)
           )
         }
+        {/* {
+          this.props.friends.map(friend => 
+            <FriendIndexItem 
+              key={friend.id}
+              // friendship={friendship}
+              friend={friend}
+              deleteFriendship={this.handleDelete}
+              requestUserFriends={this.props.requestUserFriends}
+            />)
+        } */}
       </div>
     }
 
-    return (
-      // <div className='friends-content-container'>
-      //   {
-      //     this.props.friends.map((friend, i) => (
-      //       <FriendsIndexItem
-      //         key={friend.id} 
-      //         friend={friend}
-      //         friendshipId={friendships[i]}
-      //         deleteFriendship={this.handleDelete}
-      //       />)
-      //     )
-      //   }
-      // </div>
-      comp
-    )
+    return comp
   }
 }
 
