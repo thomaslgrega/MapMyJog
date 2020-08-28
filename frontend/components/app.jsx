@@ -15,6 +15,7 @@ import FriendsIndexContainer from './friends/friends_index_container';
 import FindFriendsContainer from './friends/find_friends';
 import UsersShowContainer from './users/users_show_container';
 import FriendsTab from './friends/friends_tab';
+import RoutesShowContainer from './routes/routes_show_container';
 
 const App = () => {
   return (
@@ -31,7 +32,10 @@ const App = () => {
       </div>
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
-      <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
+      <Switch>
+        <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
+        <ProtectedRoute exact path='/routes/:routeId' component={RoutesShowContainer} />
+      </Switch>
       <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
       <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
       <AuthRoute exact path='/' component={SplashContainer} />

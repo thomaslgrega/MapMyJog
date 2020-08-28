@@ -19,7 +19,8 @@ class UsersShowRouteItem extends React.Component {
 
     return (
       <tr className="routes-table-row">
-        <td><Link to={`/routes/${route.id}`} className='route-link'>{route.name}</Link></td>
+        {/* <td><Link to={`/routes/${route.id}`} className='route-link'>{route.name}</Link></td> */}
+        <td><Link to={`/dashboard/routes`} className='route-link'>{route.name}</Link></td>
         <td>{this.parseDate()}</td>
         <td>{route.distance}</td>
         <td>{route.activity}</td>

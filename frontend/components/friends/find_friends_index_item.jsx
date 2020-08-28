@@ -7,12 +7,6 @@ class FindFriendsIndexItem extends React.Component {
   }
 
   render() {
-    // debugger
-    // const friend = this.props.users[this.props.friendship.friend_id]
-    // if (!friend) {
-    //   return null
-    // }
-
     const { user } = this.props;
     return (
       <div className='friend-index-item'>
@@ -22,7 +16,6 @@ class FindFriendsIndexItem extends React.Component {
             <span to={`/users/${user.id}`}>{user.first_name}</span>
             <span>{user.last_name}</span>
           </div>
-          {/* <span className='remove-friend-btn' onClick={() => this.props.deleteFriendship(this.props.friendship.id)}>unfriend</span> */}
         </div>
       </div>
     )

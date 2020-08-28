@@ -29,7 +29,14 @@ class FindFriends extends React.Component {
 
     return (
       <div className='find-friends-container'>
-        <span>Or check out some of our favorite users!</span>
+        {/* <div className='seach-container'> */}
+          <span className='find-friends-span'>Find Friends by First Name, Last Name or Email:</span>
+          <div className='search-bar-container'>
+            <input type="text" className='friend-search-bar' />
+            <span className='friend-search-btn'>SEARCH</span>
+          </div>
+        {/* </div> */}
+        <span className='checkout-friends-span'>Or check out some of our favorite users!</span>
         <div className='more-friends-list'>
           {
             unfriendedUsers.map(user => <FindFriendsIndexItem key={user.id} user={user} />)
@@ -41,7 +48,6 @@ class FindFriends extends React.Component {
 }
 
 const mSTP = ({ entities, session }) => {
-  debugger
   return {
     currentUser: entities.users[session.id],
     friendships: entities.friendships,

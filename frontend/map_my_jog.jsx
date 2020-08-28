@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // test
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.requestUserFriends = requestUserFriends;
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.requestUserFriends = requestUserFriends;
     // window.requestRoutes = requestRoutes;
     // window.requestRoute = requestRoute;
     // window.createRoute = createRoute;
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.createFriend = createFriendship;
     // window.deleteFriend = deleteFriendship;
     // window.requestFriends = requestFriends;
-    window.requestRandomUsers = requestRandomUsers;
-    window.fetchFriends = fetchFriends
+    // window.requestRandomUsers = requestRandomUsers;
+    // window.fetchFriends = fetchFriends
   // test
 
   const root = document.getElementById('root');

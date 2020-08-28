@@ -1,3 +1,68 @@
 // Place all the styles related to the api/friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.more-friends-list {
+  padding-top: 20px;
+  display: inline-block;
+  margin: auto;
+}
+
+.find-friends-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.checkout-friends-span {
+  padding-top: 20px;
+  padding-bottom: 35px;
+  padding-right: 144px;
+  font-size: 24px;
+  display: inline-block;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgray;
+}
+
+.friend-search-bar {
+  border: 1px #d3d6dc solid;
+  width: 400px;
+  text-indent: 10px;
+}
+
+.friend-search-bar:focus {
+  outline: none;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+}
+
+// .search-container {
+//   display: flex;
+//   justify-content: center;
+// }
+
+.find-friends-span {
+  border-top: 1px #d3d3d3 solid;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-right: 230px;
+  padding-bottom: 15px;
+  padding-top: 35px;
+}
+
+.friend-search-btn {
+  color: white;
+  padding: 10px 50px;
+  font-size: 14px;
+  margin-left: 15px;
+  border-radius: 4px;
+  background-color: #3e9be9;
+}
+
+.friend-search-btn:hover {
+  cursor: pointer;
+  background-color: #1c7cca;
+}

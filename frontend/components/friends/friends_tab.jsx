@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const FriendsTab = props => {
-  // debugger
   return (
     <div className='friends-tab-nav'>
       <NavLink className="fas fa-users" exact to='/dashboard/friends'></NavLink>
