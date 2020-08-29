@@ -23,11 +23,40 @@ Users can sign up with a new account or log in with an account that they've crea
 
 <p align="left"><img width="" height="" src="https://raw.githubusercontent.com/thomaslgrega/MapMyJog/master/app/assets/images/github_photos/maps.png"></p>
 
-Clicking the Create Route button on the dashboard will take users to a google map. By adding a click event listener on the map, users can add waypoints. Using these waypoints and the Google Directions API, the map will create a route from waypoint to waypoint in the order that they're plotted. 
+Clicking the Create Route button on the dashboard will take users to a google map. 
 
-## snippet here!
+```javascript
+initMap() {
+  const sanFran = new google.maps.LatLng(37.7758, -122.435);
+  const center = this.state.waypoints.length > 0 ? this.state.waypoints[0] : sanFran
+  const mapOptions = {
+    center,
+    zoom: 13,
+    clickableIcons: false
+  };
 
-Storing these waypoints in an array and some simple manipulation, we can do some cool things like undo a marker, reset markers, return the last marker to the first waypoint to make a full circle, and reverse a route with a click of a button. 
+  this.map = new google.maps.Map(this.mapNode, mapOptions);
+  this.map.addListener('click', this.handleMapClick);
+}
+
+handleMapClick(e) {
+  this.latLngArr.push({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+  this.renderDirections();
+} 
+```
+
+By adding a click event listener on the map, users can add waypoints. Using these waypoints and the Google Directions API, the map will create a route from waypoint to waypoint in the order that they're plotted. Storing these waypoints in an array and using some simple manipulation, we can do some cool things such as undo a marker, reset markers, return the last marker to the first waypoint to make a full circle, and reverse a route. 
+
+```javascript
+undoWaypoint() {
+  if (this.latLngArr.length <= 2) {
+    this.clearWaypoints()
+  } else {
+    this.latLngArr.pop();
+    this.renderDirections()
+  }
+}
+```
 
 ## Future Direction
 
