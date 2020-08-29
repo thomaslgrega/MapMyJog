@@ -17,7 +17,7 @@ MapMyJog is a fitness app that takes advantage of the google maps and directions
 
 ## User Auth
 
-<p align="left"><img width="" height="" src="/Users/thomasgrega/Desktop/mapmyjog/app/assets/images/github_photos/user_auth.png"></p>
+<p align="left"><img width="" height="" src="https://raw.githubusercontent.com/thomaslgrega/MapMyJog/master/app/assets/images/github_photos/maps.png"></p>
 
 Users can sign up with a new account or log in with an account that they've created. A demo login user is also available to allow full testing of the app's features.
 
