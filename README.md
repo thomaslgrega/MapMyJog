@@ -62,4 +62,5 @@ undoWaypoint() {
 
 - Add an activities feature where users can add and keep track of workouts that they've done or plan to do. I would also keep stats like how long they've worked out and how many miles they've ran.
 - Add a search feature for finding other users and also searching for routes by other people.
-- Add a commenting feature to comment on other people's routes and workouts if they're made public
+- Add a commenting feature to comment on other people's routes and workouts if they're made public.
+- Optimize for routes having extremely high numbers of waypoints.
