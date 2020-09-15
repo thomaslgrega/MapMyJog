@@ -4,7 +4,14 @@
     <title>Mapmyjog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+     <meta property="og:title" content="MapMyJog" />
+     <meta property='og:image' content="<%= image_url('maps.png') %>"/>
+     <meta property="og:description"
+       content="A fitness app inpired by MapMyRun."
+     />
+     <meta property="og:url"
+       content="https://tg-mapmyjog.herokuapp.com/"
+     />
     <script defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:api_key] %>">
     </script>
