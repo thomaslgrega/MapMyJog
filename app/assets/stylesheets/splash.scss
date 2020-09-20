@@ -1,6 +1,8 @@
 .main-splash-container {
   display: flex;
-  height: 800px;
+  // height: 800px;
+  height: 100%;
+  // height: 200%;
   width: 100%;
   justify-content: center;
   position: relative;
@@ -19,6 +21,19 @@
   z-index: -1;
 }
 
+.splash-image-2 {
+  width: 1300px;
+  height: 100%;
+  background-image: image-url('splash_page_2');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  // bottom: -860px;
+  bottom: -680px;
+}
+
 .splash-text-container {
   width: 300px;
   // position: absolute;
@@ -35,6 +50,20 @@
   margin-right: 5px;
 }
 
+.catch-phrase-2 {
+  color: white;
+  padding-top: 5px;
+  font-size: 40px;
+  font-weight: 900;
+  z-index: 1;
+}
+
+.catch-phrase-2-desc {
+  display: inline-block;
+  color: white;
+  margin-bottom: 7px;
+}
+
 .catch-phrase-container {
   width: 430px;
   position: absolute;
@@ -44,6 +73,21 @@
   letter-spacing: 2px;
   z-index: 2;
   margin-left: 900px;
+}
+
+.catch-phrase-container-2 {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
+  width: 430px;
+  left: 5%;
+  position: absolute;
+  background-color: transparent;
+  top: 30%;
+}
+
+.catch-phrase-2 {
+  display: block;
 }
 
 .splash-text-container {
@@ -69,8 +113,13 @@
   }
 }
 
+// @media only screen and (max-width: 1300px) {
+//   .catch-phrase-container-2 {
+//     margin-left: 10%;
+//   }
+// }
 
-hr {
+.splash-1-hr {
   position: relative;
   width: 20%;
   background-color: white;
@@ -79,13 +128,21 @@ hr {
   left: 20%;
 }
 
+.splash-2-hr {
+  position: relative;
+  width: 20%;
+  background-color: white;
+  margin: 30px 0 30px 0;
+}
+
 .slanted-div {
   position: absolute;
   transform: skewY(-6deg);
   background-color: #f5f5f5;
   z-index: 0;
   bottom: 5px;
-  height: 140px;
+  // height: 140px;
+  height: 150px;
   width: 100%;
 }
 
@@ -131,6 +188,6 @@ hr {
 }
 
 .splash-login-link:hover {
-  background-color: rgba(163, 163, 163, 0.2);
+  background-color: rgba(211, 214, 219, 0.2);
   transition-duration: 0.2s;
 }
