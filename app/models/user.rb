@@ -14,6 +14,10 @@ class User < ApplicationRecord
     class_name: :Friend,
     foreign_key: :user_id
 
+  has_many :comments,
+    class_name: :Comment,
+    foreign_key: :author_id
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil

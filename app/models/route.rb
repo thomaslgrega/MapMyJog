@@ -5,4 +5,8 @@ class Route < ApplicationRecord
   belongs_to :user,
     class_name: :User,
     foreign_key: :creator_id
+
+  has_many :comments,
+    class_name: :Comment,
+    foreign_key: :route_id
 end

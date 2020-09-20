@@ -29,7 +29,7 @@ class Api::RoutesController < ApplicationController
     @user = current_user
 
     if route 
-      if @user.id === route.creator_id 
+      if @user.id == route.creator_id 
         route.destroy 
         render "/api/users/show"
       else
