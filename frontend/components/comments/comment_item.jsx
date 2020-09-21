@@ -12,6 +12,7 @@ const CommentItem = ({ currentUser, users, comment, requestUser }) => {
 
   const authorName = users[comment.author_id] ? users[comment.author_id].first_name : null;
   const authorId = users[comment.author_id] ? users[comment.author_id].id : null;
+
   const parseDate = () => {
     let dateStr = comment.created_at.slice(0, 10);
     dateStr = dateStr.split('-');
@@ -22,7 +23,7 @@ const CommentItem = ({ currentUser, users, comment, requestUser }) => {
     <div>
       <Link to={`/users/${authorId}`}>{authorName}</Link>
       <span>{parseDate()}</span>
-
+      <span>{comment.body}</span>
     </div>
   )
 }
