@@ -21,9 +21,9 @@ const CommentsIndex = ({ currentUser, comments, routeId, requestComments, create
 
   return (
     <div className="comments-container">
-      <span>{comments.length} Comments</span>
-      <textarea className="comments-textarea" cols="30" rows="2" value={body} placeholder='Add a comment' onChange={e => setBody(e.target.value)}></textarea>
-      <button onClick={addComment}>Comment</button>
+      <span className="comments-count">{comments.length} Comments</span>
+      <textarea className="comments-textarea" cols="30" rows="2" wrap="hard" value={body} placeholder='Add a comment' onChange={e => setBody(e.target.value)}></textarea>
+      <button className="add-comment-btn" onClick={addComment}>Comment</button>
       {
         comments.map(comment => <CommentItem key={comment.id} comment={comment} />)
       }

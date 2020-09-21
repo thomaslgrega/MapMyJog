@@ -19,7 +19,7 @@ const CommentItem = ({ currentUser, users, comment, requestUser, deleteComment }
   }
 
   const deleteButton = currentUser.id === authorId ? (
-    <button onClick={() => deleteComment(comment.id)}>Delete</button>
+    <button className="delete-comment-btn" onClick={() => deleteComment(comment.id)}>Delete</button>
   ) : null
 
   const showCommentDropdown = e => {
@@ -29,15 +29,18 @@ const CommentItem = ({ currentUser, users, comment, requestUser, deleteComment }
         dropdown.classList.remove("show")
       }
     })
-    
-    e.target.children[0].classList.toggle("show");
+    if (e.target.children[0]) {
+      e.target.children[0].classList.toggle("show");
+    }
   }
 
   return (
     <div className="comment-div">
       <div className="comment-header">
-        <Link to={`/users/${authorId}`}>{authorName}</Link>
-        <span>{parseDate()}</span>
+        <div className="comment-header-left">
+          <Link className="comment-user-link" to={`/users/${authorId}`}>{authorName}</Link>
+          <span className="comment-date-span">{parseDate()}</span>
+        </div>
         <span className="fas fa-ellipsis-v" onClick={showCommentDropdown}>
           <div className="comment-dropdown">
             {deleteButton}

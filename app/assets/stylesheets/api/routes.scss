@@ -17,6 +17,7 @@
   width: 300px;
   border-right: 1px solid #999999;
   left: 0;
+  overflow: scroll;
 }
 
 .routes-sidebar-container form {
@@ -72,6 +73,7 @@
   border: 1px solid #b1b0b0;
   padding: 8px;
   padding-top: 2px;
+  resize: none;
 }
 
 .save-route-btn {
