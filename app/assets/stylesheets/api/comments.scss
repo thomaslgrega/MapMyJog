@@ -1,3 +1,32 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comments-textarea {
+  color: dimgray;
+  // margin-left: 15px;
+  border-radius: 4px;
+  width: 235px;
+  border: 1px solid #b1b0b0;
+  padding: 8px;
+  padding-top: 2px;
+}
+
+.comments-container {
+  width: 235px;
+  margin-left: 15px;
+}
+
+.fa-ellipsis-v {
+  position: relative;
+  cursor: pointer;
+}
+
+.comment-dropdown {
+  position: absolute;
+  display: none;
+}
+
+.show {
+  display: block;
+}

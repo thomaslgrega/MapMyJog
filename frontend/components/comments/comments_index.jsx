@@ -1,15 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { requestComments } from "../../actions/comments_actions";
+import { requestComments, createComment } from "../../actions/comments_actions";
 import CommentItem from "./comment_item";
 
-const CommentsIndex = ({ comments, routeId, requestComments }) => {
+const CommentsIndex = ({ currentUser, comments, routeId, requestComments, createComment }) => {
+  const [body, setBody] = useState('');
   useEffect(() => {
     requestComments(routeId);
   }, [])
 
+  const addComment = () => {
+    const comment = {
+      author_id: currentUser,
+      route_id: routeId,
+      body
+    }
+
+    createComment(comment)
+  }
+
   return (
-    <div>
+    <div className="comments-container">
+      <span>{comments.length} Comments</span>
+      <textarea className="comments-textarea" cols="30" rows="2" value={body} placeholder='Add a comment' onChange={e => setBody(e.target.value)}></textarea>
+      <button onClick={addComment}>Comment</button>
       {
         comments.map(comment => <CommentItem key={comment.id} comment={comment} />)
       }
@@ -17,15 +31,14 @@ const CommentsIndex = ({ comments, routeId, requestComments }) => {
   )
 }
 
-const mSTP = state => {
-  return {
-    comments: state.entities.comments ? Object.values(state.entities.comments) : []
-
-  }
-}
+const mSTP = state => ({
+  currentUser: state.entities.users[state.session.id],
+  comments: state.entities.comments ? Object.values(state.entities.comments).reverse() : []
+})
 
 const mDTP = dispatch => ({
-  requestComments: (routeId) => dispatch(requestComments(routeId))
+  requestComments: (routeId) => dispatch(requestComments(routeId)),
+  createComment: comment => dispatch(createComment(comment))
 })
 
 export default connect(mSTP, mDTP)(CommentsIndex);

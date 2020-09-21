@@ -11,7 +11,7 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_ROUTE_COMMENTS:
       return action.comments;
     case RECEIVE_COMMENT:
-      return action.comment
+      return {...nextState, ...action.comment};
     case REMOVE_COMMENT:
       delete nextState[action.commentId];
       return nextState;

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { deleteComment, updateComment } from "../../actions/comments_actions";
 import { requestUser } from "../../actions/user_actions";
 
-const CommentItem = ({ currentUser, users, comment, requestUser }) => {
-  // const [body, updateBody] = useState(comment.body);
+const CommentItem = ({ currentUser, users, comment, requestUser, deleteComment }) => {
   useEffect(() => {
     requestUser(comment.author_id)
   }, [])
@@ -19,10 +18,32 @@ const CommentItem = ({ currentUser, users, comment, requestUser }) => {
     return `${dateStr[1]}/${dateStr[2]}/${dateStr[0]}`
   }
 
+  const deleteButton = currentUser.id === authorId ? (
+    <button onClick={() => deleteComment(comment.id)}>Delete</button>
+  ) : null
+
+  const showCommentDropdown = e => {
+    const allDropdowns = Array.from(document.querySelectorAll(".comment-dropdown"));
+    allDropdowns.forEach(dropdown => {
+      if (dropdown !== e.target.children[0]) {
+        dropdown.classList.remove("show")
+      }
+    })
+    
+    e.target.children[0].classList.toggle("show");
+  }
+
   return (
-    <div>
-      <Link to={`/users/${authorId}`}>{authorName}</Link>
-      <span>{parseDate()}</span>
+    <div className="comment-div">
+      <div className="comment-header">
+        <Link to={`/users/${authorId}`}>{authorName}</Link>
+        <span>{parseDate()}</span>
+        <span className="fas fa-ellipsis-v" onClick={showCommentDropdown}>
+          <div className="comment-dropdown">
+            {deleteButton}
+          </div>
+        </span>
+      </div>
       <span>{comment.body}</span>
     </div>
   )
