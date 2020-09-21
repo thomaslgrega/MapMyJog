@@ -2,8 +2,8 @@ import React from 'react';
 import RouteIndexItem from './route_index_item'
 
 class RoutesIndex extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
   }
 
   componentDidMount() {

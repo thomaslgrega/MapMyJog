@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import CommentsIndex from '../comments/comments_index';
 
 class RoutesSidebar extends React.Component {
   constructor(props) {
@@ -76,6 +77,8 @@ class RoutesSidebar extends React.Component {
         <ul className='route-errors'>
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
+
+        <CommentsIndex routeId={this.props.id}/>
       </div>
     )
   }

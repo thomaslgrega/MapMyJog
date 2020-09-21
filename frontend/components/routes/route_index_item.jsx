@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class RouteIndexItem extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.parseDate = this.parseDate.bind(this);
   }

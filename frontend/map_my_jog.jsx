@@ -6,7 +6,7 @@ import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } fr
 import { createFriendship, deleteFriendship, requestFriends } from './actions/friends_actions';
 import { fetchFriends } from './util/user_api_util';
 import { requestUserFriends, requestRandomUsers } from './actions/user_actions';
-import { createComment, deleteComment, updateComment } from './actions/comments_actions';
+import { createComment, deleteComment, updateComment, requestComments } from './actions/comments_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -25,12 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  // test
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.createComment = createComment;
-    window.deleteComment = deleteComment;
-    window.updateComment = updateComment;
+  // ********************** test **********************************
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.createComment = createComment;
+    // window.deleteComment = deleteComment;
+    // window.updateComment = updateComment;
+    // window.requestComments = requestComments;
     // window.requestUserFriends = requestUserFriends;
     // window.requestRoutes = requestRoutes;
     // window.requestRoute = requestRoute;
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.requestFriends = requestFriends;
     // window.requestRandomUsers = requestRandomUsers;
     // window.fetchFriends = fetchFriends
-  // test
+  // ********************** test **********************************
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
