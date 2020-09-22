@@ -35,7 +35,6 @@ const App = () => {
       <Switch>
         <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
         <ProtectedRoute exact path='/routes/:routeId' component={RoutesShowContainer} />
-        {/* <ProtectedRoute exact path='/routes/:routeId' component={RoutesEditContainer} /> */}
       </Switch>
       <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
       <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />

@@ -19,7 +19,7 @@ class EditRouteMap extends React.Component {
   }
 
   render() {
-    const { action, route, errors, clearRouteErrors } = this.props;
+    const { action, route, errors, clearRouteErrors, type } = this.props;
 
     if (!route) return null;
     return (
@@ -28,6 +28,7 @@ class EditRouteMap extends React.Component {
         route={route}
         errors={errors}
         clearRouteErrors={clearRouteErrors}
+        type={type}
       />
     );
   }
@@ -35,7 +36,8 @@ class EditRouteMap extends React.Component {
 
 const mSTP = (state, ownProps) => ({
   route: state.entities.routes[ownProps.match.params.routeId],
-  errors: state.errors.routes
+  errors: state.errors.routes,
+  type: "edit"
 });
 
 const mDTP = dispatch => ({

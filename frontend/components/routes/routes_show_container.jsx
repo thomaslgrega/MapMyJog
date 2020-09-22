@@ -1,22 +1,8 @@
-// import { connect } from "react-redux";
-// import { requestRoute } from "../../actions/routes_actions";
 import RoutesShow from "./routes_show";
-
-// const mSTP = ({ entities }) => {
-//   return {
-//     routes: entities.routes
-//   }
-// };
-
-// const mDTP = dispatch => ({
-//   requestRoute: routeId => dispatch(requestRoute(routeId))
-// });
-
-// export default connect(mSTP, mDTP)(RoutesShow)
-
 import React from 'react';
 import { connect } from "react-redux";
 import { requestRoute, updateRoute, clearRouteErrors } from '../../actions/routes_actions';
+import { requestUser } from "../../actions/user_actions";
 
 class ShowRouteMap extends React.Component {
   constructor(props) {
@@ -34,7 +20,7 @@ class ShowRouteMap extends React.Component {
   }
 
   render() {
-    const { action, route, errors, clearRouteErrors } = this.props;
+    const { action, route, errors, clearRouteErrors, requestUser } = this.props;
 
     if (!route) return null;
     return (
@@ -55,7 +41,6 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
   requestRoute: routeId => dispatch(requestRoute(routeId)),
-  action: route => dispatch(updateRoute(route)),
   clearRouteErrors: () => dispatch(clearRouteErrors())
 });
 

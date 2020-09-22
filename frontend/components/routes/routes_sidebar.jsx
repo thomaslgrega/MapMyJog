@@ -16,6 +16,7 @@ class RoutesSidebar extends React.Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkForEdit = this.checkForEdit.bind(this);
   }
 
   update(field) {
@@ -35,6 +36,14 @@ class RoutesSidebar extends React.Component {
         .then(() => this.props.history.push('/dashboard/routes')));
     } else {
       alert('You must have at least two points on the map to save a route.')
+    }
+  }
+
+  checkForEdit() {
+    if (this.props.type === "edit") {
+      return <CommentsIndex routeId={this.props.id} />
+    } else {
+      return null;
     }
   }
 
@@ -78,7 +87,8 @@ class RoutesSidebar extends React.Component {
           {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
 
-        <CommentsIndex routeId={this.props.id}/>
+        {/* <CommentsIndex routeId={this.props.id}/> */}
+        {this.checkForEdit()}
       </div>
     )
   }

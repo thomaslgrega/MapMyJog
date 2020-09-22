@@ -191,6 +191,7 @@ class RoutesMap extends React.Component {
           waypoints={this.state.waypoints}
           action={this.props.action}
           errors={this.props.errors}
+          type={this.props.type}
         />
         <span className="fas fa-caret-left" onClick={this.handleSidebar}></span>
 

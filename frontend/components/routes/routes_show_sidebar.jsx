@@ -12,76 +12,32 @@ class RoutesShowSidebar extends React.Component {
       activity: this.props.activity,
       description: this.props.description,
       waypoints: this.props.waypoints,
+      distance: this.props.distance
     }
-
-    // this.update = this.update.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // update(field) {
-  //   return e => {
-  //     this.setState({ [field]: e.currentTarget.value })
-  //   }
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (this.props.waypoints.length > 1) {
-  //     const waypointsJSON = JSON.stringify(this.state.waypoints)
-  //     this.setState({
-  //       waypoints: waypointsJSON,
-  //       distance: this.props.distance
-  //     }, () => this.props.action(this.state)
-  //       .then(() => this.props.history.push('/dashboard/routes')));
-  //   } else {
-  //     alert('You must have at least two points on the map to save a route.')
-  //   }
-  // }
 
   render() {
     return (
       <div className='routes-sidebar-container'>
         <h4 className="route-form-title">Route Details</h4>
         <div className="route-details-container">
-          <span>Route Name:</span>
-          <span>{this.state.name}</span>
+          <div className="route-name-container">
+            <span className="route-show-title">Route Name</span>
+            <span className="route-show-content">{this.state.name}</span>
+          </div>
+          <div className="route-activity-container">
+            <span className="route-show-title">Activity</span>
+            <span className="route-show-content">{this.state.activity}</span>
+          </div>
+          <div className="route-distance-container">
+            <span className="route-show-title">Distance</span>
+            <span className="route-show-content">{this.state.distance}</span>
+          </div>
+          <div className="route-description-container">
+            <span className="route-show-title">Description</span>
+            <span className="route-show-content">{this.state.description}</span>
+          </div>
         </div>
-        {/* <form onSubmit={this.handleSubmit}>
-          <div className="name-input-container">
-            <input
-              type="text"
-              placeholder="Name this map"
-              onChange={this.update('name')}
-              className="sidebar-name-input"
-              value={this.state.name} />
-            <span className='required-field'>*</span>
-          </div>
-          <div className="activity-select-container">
-            <select className="sidebar-activity-select" onChange={this.update('activity')} value={this.state.activity}>
-              <option disabled>Choose an Activity</option>
-              <option value="Run">Run</option>
-              <option value="Walk">Walk</option>
-              <option value="Winter sport / Activity">Winter sport / Activity</option>
-              <option value="Bike Ride">Bike Ride</option>
-              <option value="Sport/ Other Activity">Sport / Other Activity</option>
-              <option value="Hike">Hike</option>
-            </select>
-            <span className="fas fa-sort-down select-down-arrow"></span>
-            <span className='required-field-select'>*</span>
-          </div>
-          <button className="save-route-btn">SAVE ROUTE</button>
-          <textarea cols="30" rows="2"
-            value={this.state.description}
-            placeholder='Describe this map'
-            onChange={this.update('description')}
-            className="sidebar-description-textarea"
-          >
-          </textarea>
-        </form> */}
-        <ul className='route-errors'>
-          {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-        </ul>
-
         <CommentsIndex routeId={this.props.id} />
       </div>
     )

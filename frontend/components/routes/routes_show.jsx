@@ -63,7 +63,6 @@ class RoutesShow extends React.Component {
     this.directionsService.route(request, (result, status) => {
       if (status === 'OK') {
         this.directionsDisplay.setDirections(result);
-        this.updateDistance(result);
       }
     });
 
@@ -103,11 +102,7 @@ class RoutesShow extends React.Component {
           activity={this.state.activity}
           description={this.state.description}
           distance={this.state.distance}
-          action={this.props.action}
           creator_id={this.state.creator_id}
-          waypoints={this.state.waypoints}
-          action={this.props.action}
-          errors={this.props.errors}
         />
         <span className="fas fa-caret-left" onClick={this.handleSidebar}></span>
       </div>

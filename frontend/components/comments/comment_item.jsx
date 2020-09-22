@@ -47,7 +47,7 @@ const CommentItem = ({ currentUser, users, comment, requestUser, deleteComment }
           </div>
         </span>
       </div>
-      <span>{comment.body}</span>
+      <span className="comment-body">{comment.body}</span>
     </div>
   )
 }

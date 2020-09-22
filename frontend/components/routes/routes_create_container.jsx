@@ -14,7 +14,8 @@ const mSTP = ({ entities, session, errors }) => ({
     activity: 'Choose an Activity'
   },
   currentUser: entities.users[session.id],
-  errors: errors.routes
+  errors: errors.routes,
+  type: "create"
 });
 
 const mDTP = dispatch => ({

@@ -1,0 +1,25 @@
+.route-details-container {
+  width: 235px;
+  padding: 0 8px 8px 8px;
+  margin-left: 15px;
+}
+
+.route-name-container,
+.route-activity-container,
+.route-description-container,
+.route-distance-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.route-show-title {
+  font-weight: 700;
+}
+
+.route-show-content {
+  padding-top: 5px;
+  display: inline-block;
+  font-size: 14px;
+}

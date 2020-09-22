@@ -52,6 +52,11 @@
 
 .comment-user-link {
   color: black;
+  font-weight: 500;
+}
+
+.comment-user-link:hover {
+  font-weight: 900;
 }
 
 .comment-dropdown {
@@ -62,12 +67,28 @@
   box-shadow: 1px 1px 4px #888888;
 }
 
+.comment-body {
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .add-comment-btn {
-  padding: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
   border-radius: 4px;
   margin-left: 170px;
   margin-top: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #41a7fa;
+  color: white;
+  outline: none;
+}
+
+.add-comment-btn:hover {
+  background-color: #219afd;
+  transition-duration: 0.2s;
 }
 
 .comment-date-span {
