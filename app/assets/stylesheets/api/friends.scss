@@ -5,9 +5,10 @@
 .more-friends-list {
   padding-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin: auto;
   width: 900px;
+  flex-wrap: wrap;
 }
 
 .find-friends-container {

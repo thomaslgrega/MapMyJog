@@ -116,8 +116,8 @@
 
 .friends-content-container {
   display: flex;
-  justify-content: center;
-  // flex-direction: column;
+  justify-content: left;
+  flex-wrap: wrap;
   width: 900px;
   margin: auto;
 }
@@ -137,7 +137,8 @@
 .friend-index-item {
   display: flex;
   justify-content: left;
-  width: 40%;
+  min-width: 450px;
+  margin-bottom: 30px;
   // margin: 10px auto;
   // border: 1px darkgray solid;
   // padding: 10px 20px;
