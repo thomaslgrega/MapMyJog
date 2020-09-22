@@ -18,3 +18,11 @@ export const fetchRandomUsers = () => {
     method: 'GET'
   })
 };
+
+export const fetchUserSearch = query => {
+  return $.ajax({
+    url: `api/users/search`,
+    method: 'POST',
+    data: { query }
+  })
+};

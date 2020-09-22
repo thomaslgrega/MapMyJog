@@ -22,6 +22,11 @@ class Api::UsersController < ApplicationController
     render :random
   end
 
+  def search
+    @users = User.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    render :random
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     if @user
@@ -33,6 +38,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :date_of_birth, :gender)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :date_of_birth, :gender, :query)
   end
 end

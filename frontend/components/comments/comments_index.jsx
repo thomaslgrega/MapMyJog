@@ -17,6 +17,7 @@ const CommentsIndex = ({ currentUser, comments, routeId, requestComments, create
     }
 
     createComment(comment)
+    setBody("");
   }
 
   return (

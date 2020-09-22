@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import { requestRoutes, requestRoute, createRoute, updateRoute, deleteRoute } from './actions/routes_actions';
 import { createFriendship, deleteFriendship, requestFriends } from './actions/friends_actions';
 import { fetchFriends } from './util/user_api_util';
-import { requestUserFriends, requestRandomUsers } from './actions/user_actions';
+import { requestUserFriends, requestRandomUsers, requestUserSearch } from './actions/user_actions';
 import { createComment, deleteComment, updateComment, requestComments } from './actions/comments_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ********************** test **********************************
     // window.dispatch = store.dispatch;
     // window.getState = store.getState;
+    // window.requestUserSearch = requestUserSearch;
     // window.createComment = createComment;
     // window.deleteComment = deleteComment;
     // window.updateComment = updateComment;

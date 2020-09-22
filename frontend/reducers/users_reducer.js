@@ -20,6 +20,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USERS:
       nextState = {...nextState, ...action.users }
       return nextState;
+      // return action.users
     default:
       return state;
   }

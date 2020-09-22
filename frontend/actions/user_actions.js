@@ -33,3 +33,8 @@ export const requestRandomUsers = () => dispatch => {
   return userAPIUtil.fetchRandomUsers()
     .then(users => dispatch(receiveUsers(users)))
 };
+
+export const requestUserSearch = query => dispatch => {
+  return userAPIUtil.fetchUserSearch(query)
+    .then(users => dispatch(receiveUsers(users)))
+}
