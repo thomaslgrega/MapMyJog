@@ -16,6 +16,34 @@ nav.nav-bar {
   }
 }
 
+.personal-links-container {
+  display: flex;
+}
+
+.personal-link {
+  font-size: 30px;
+  padding-right: 20px;
+  color: dimgray;
+}
+
+.personal-link:hover {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+  color: #0577b5;
+}
+
+.nav-right-container {
+  display: flex;
+  justify-content: space-between;
+  width: 410px;
+}
+
+.nav-right-container-logged-in {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
 .login-nav {
   display: block;
   text-decoration: none;
