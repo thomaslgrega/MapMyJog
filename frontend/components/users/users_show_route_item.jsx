@@ -25,7 +25,7 @@ class UsersShowRouteItem extends React.Component {
         <td>{route.distance}</td>
         <td>{route.activity}</td>
         <td>
-          <span>Add to My Routes</span>
+          <Link to={`/routes/${route.id}`} className='route-link'>View</Link>
         </td>
       </tr>
     )

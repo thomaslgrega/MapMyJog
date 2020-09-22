@@ -44,16 +44,6 @@ class FriendsIndex extends React.Component {
             />)
           )
         }
-        {/* {
-          this.props.friends.map(friend => 
-            <FriendIndexItem 
-              key={friend.id}
-              // friendship={friendship}
-              friend={friend}
-              deleteFriendship={this.handleDelete}
-              requestUserFriends={this.props.requestUserFriends}
-            />)
-        } */}
       </div>
     }
 

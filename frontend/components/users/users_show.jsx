@@ -67,7 +67,7 @@ class UserShow extends React.Component {
                   <th className='table-header'>Created</th>
                   <th className='table-header'>Distance</th>
                   <th className='table-header'>Activity</th>
-                  <th className='table-header'>Copy</th>
+                  <th className='table-header'>Options</th>
                 </tr>
               </thead>
               <tbody>
