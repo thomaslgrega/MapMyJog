@@ -4,8 +4,10 @@
 
 .more-friends-list {
   padding-top: 20px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   margin: auto;
+  width: 900px;
 }
 
 .find-friends-container {
@@ -48,7 +50,7 @@
   border-top: 1px #d3d3d3 solid;
   margin: 0 auto;
   margin-top: 20px;
-  padding-right: 230px;
+  padding-right: 374px;
   padding-bottom: 15px;
   padding-top: 35px;
 }

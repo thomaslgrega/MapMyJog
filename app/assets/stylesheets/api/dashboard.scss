@@ -117,8 +117,8 @@
 .friends-content-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  width: 700px;
+  // flex-direction: column;
+  width: 900px;
   margin: auto;
 }
 
@@ -137,10 +137,10 @@
 .friend-index-item {
   display: flex;
   justify-content: left;
-  width: 80%;
-  margin: 10px auto;
+  width: 40%;
+  // margin: 10px auto;
   // border: 1px darkgray solid;
-  padding: 10px 20px;
+  // padding: 10px 20px;
 }
 
 .fa-times-circle {

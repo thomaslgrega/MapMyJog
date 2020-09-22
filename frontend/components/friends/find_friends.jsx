@@ -30,7 +30,7 @@ class FindFriends extends React.Component {
     return (
       <div className='find-friends-container'>
         {/* <div className='seach-container'> */}
-          <span className='find-friends-span'>Find Friends by First Name, Last Name or Email:</span>
+          <span className='find-friends-span'>Find Friends by First Name:</span>
           <div className='search-bar-container'>
             <input type="text" className='friend-search-bar' />
             <span className='friend-search-btn'>SEARCH</span>
