@@ -13,8 +13,8 @@ class FindFriendsIndexItem extends React.Component {
         <Link className="fas fa-running friend-index-logo" to={`/users/${user.id}`}></Link>
         <div className='friend-content'>
           <div className='full-name-container'>
-            <span to={`/users/${user.id}`}>{user.first_name}</span>
-            <span>{user.last_name}</span>
+            <Link className="full-name-link" to={`/users/${user.id}`}>{user.first_name} {user.last_name}</Link>
+            {/* <span>{user.last_name}</span> */}
           </div>
         </div>
       </div>

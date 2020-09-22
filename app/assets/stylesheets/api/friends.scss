@@ -47,6 +47,15 @@
 //   justify-content: center;
 // }
 
+.full-name-link {
+  color: black;
+}
+
+.full-name-link:hover {
+  font-size: 18px;
+  transition-duration: 0.2s;
+}
+
 .find-friends-span {
   border-top: 1px #d3d3d3 solid;
   margin: 0 auto;
