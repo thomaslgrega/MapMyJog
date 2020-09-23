@@ -116,11 +116,17 @@
   text-decoration: underline;
 }
 
-.third-band > span {
+.third-band > span,.third-band > a {
+  color: #828282;
   display: inline-block;
-  margin-top: 5px;
+  // margin-top: 5px;
   font-size: 13px;
-  padding: 0 10px;
+  margin: 5px 10px 0 10px;
+}
+
+.third-band > a:hover {
+  color: black;
+  text-decoration: underline;
 }
 
 .second-band-right-links > a:hover {

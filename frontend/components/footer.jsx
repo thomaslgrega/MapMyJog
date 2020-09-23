@@ -42,6 +42,8 @@ const Footer = () => {
         <span>Created by Thomas Grega</span>
         <span>|</span>
         <span>Demonstration purposes only</span>
+        <span>|</span>
+        <a href="https://www.mapmyrun.com/" target='_blank'>MapMyRun website</a>
       </div>
     </footer>
   )
