@@ -40,6 +40,8 @@
 }
 
 .footer-personal-link {
+  display: inline-block;
+  width: max-content;
   font-size: 14px;
   color: #808385;
 }
@@ -107,6 +109,8 @@
 }
 
 .footer-auth-links {
+  display: inline-block;
+  width: max-content;
   font-size: 14px;
   color: #808385;
 }
