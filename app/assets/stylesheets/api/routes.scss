@@ -115,7 +115,6 @@
   position: absolute;
   left: 300px;
   top: 200px;
-  background: red;
   border-top: 1px solid #b1b0b0;
   border-right: 1px solid #b1b0b0;
   border-bottom: 1px solid #b1b0b0;
@@ -123,6 +122,11 @@
   padding: 5px 8px 5px 3px;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
+}
+
+.fa-caret-left:hover, .fa-caret-right:hover {
+  padding: 5px 10px 5px 5px;
+  transition-duration: 0.3s;
 }
 
 .btn-close {

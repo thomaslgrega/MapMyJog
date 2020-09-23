@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './footer';
 
 const Splash = () => {
   return (
@@ -21,9 +22,8 @@ const Splash = () => {
           <Link to='/login' className='splash-login-link'>LOG IN</Link>
         </div>
       </div>
-      {/* </div> */}
       <div className='slanted-div'></div>
-      {/* <div className='splash-image-2'>
+      <div className='splash-image-2'>
         <div className='catch-phrase-container-2'>
           <hr className='splash-2-hr' size='8' />
           <span className='catch-phrase-2'>FIND YOUR PATH</span>
@@ -33,7 +33,7 @@ const Splash = () => {
           <span className='catch-phrase-2-desc'>wherever you are. Save your favorites for</span>
           <span className='catch-phrase-2-desc'>the next time you're ready to run.</span>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 };

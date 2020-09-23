@@ -16,6 +16,7 @@ import FindFriendsContainer from './friends/find_friends';
 import UsersShowContainer from './users/users_show_container';
 import FriendsTab from './friends/friends_tab';
 import RoutesShowContainer from './routes/routes_show_container';
+import Footer from './footer';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
       <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
       <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
       <AuthRoute exact path='/' component={SplashContainer} />
+      <AuthRoute exact path='/' component={Footer} />
     </div>
   )
 };

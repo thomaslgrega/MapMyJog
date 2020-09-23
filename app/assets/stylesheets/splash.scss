@@ -1,44 +1,50 @@
 .main-splash-container {
   display: flex;
-  // height: 800px;
-  height: 100%;
-  // height: 200%;
-  width: 100%;
+  height: 1600px;
+  // height: 100%;
+  // width: 100%;
+  width: 1300px;
   justify-content: center;
   position: relative;
   // z-index: -1;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1300px) {
+  .main-splash-container {
+    width: 100%;
+  }
 }
 
 .splash-image {
   width: 1300px;
-  height: 100%;
+  height: 800px;
+  // height: 100%;
   background-image: image-url('map_my_jog_splash.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  bottom: 75px;
-  z-index: -1;
+  // position: relative;
+  // bottom: 75px;
+  // z-index: 0;
+  // position: relative;
+  // bottom: 75px;
+  // z-index: -1;
 }
 
 .splash-image-2 {
-  width: 1300px;
-  height: 100%;
+  // width: 1300px;
+  width: 100%;
+  // height: 100%;
+  height: 800px;
   background-image: image-url('splash_page_2');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   z-index: -1;
-  // bottom: -860px;
-  bottom: -680px;
-}
-
-.splash-text-container {
-  width: 300px;
-  // position: absolute;
-  // right: 100%;
-  // top: 20%;
+  bottom: 0px;
+  // bottom: -680px;
 }
 
 .catch-phrase {
@@ -91,8 +97,9 @@
 }
 
 .splash-text-container {
+  width: 300px;
   position: absolute;
-  top: 33%;
+  top: 20%;
   text-align: right;
   color: white;
   // right: 65px;
@@ -140,7 +147,7 @@
   transform: skewY(-6deg);
   background-color: #f5f5f5;
   z-index: 0;
-  bottom: 5px;
+  bottom: 725px;
   // height: 140px;
   height: 150px;
   width: 100%;
