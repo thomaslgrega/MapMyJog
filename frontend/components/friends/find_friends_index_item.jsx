@@ -14,7 +14,6 @@ class FindFriendsIndexItem extends React.Component {
         <div className='friend-content'>
           <div className='full-name-container'>
             <Link className="full-name-link" to={`/users/${user.id}`}>{user.first_name} {user.last_name}</Link>
-            {/* <span>{user.last_name}</span> */}
           </div>
         </div>
       </div>

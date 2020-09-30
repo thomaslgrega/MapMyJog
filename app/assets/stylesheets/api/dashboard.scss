@@ -1,7 +1,7 @@
 .dashboard-container {
   width: 1300px;
   margin: 0 auto;
-  min-height: calc(100vh - 341px);
+  min-height: calc(100vh - 356px);
 }
 
 .dashboard-nav {
@@ -34,7 +34,7 @@
 }
 
 .dashboard-links-container {
-  margin-top: 10px;
+  margin-top: 25px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -119,8 +119,7 @@
 }
 
 .routes-table-row {
-  // color: #f7f7f7;
-  background-color: #e8ecff;
+  background-color: white;
 }
 
 .routes-table-row:hover {
@@ -129,12 +128,13 @@
 }
 
 .friends-content-container {
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
+  // padding-left: 17%;
+  padding-left: 165px;
+  // display: flex;
+  margin: 0 auto;
   width: 900px;
-  margin: auto;
-  min-height: calc(100vh - 409px);
+  flex-wrap: wrap;
+  min-height: calc(100vh - 424px);
 }
 
 .friend-index-logo {
@@ -150,14 +150,18 @@
 }
 
 .friend-index-item {
-  display: flex;
+  // display: flex;
+  display: inline-block;
   justify-content: left;
-  min-width: 450px;
+  width: 450px;
   margin-bottom: 30px;
   height: 74px;
   // margin: 10px auto;
   // border: 1px darkgray solid;
   // padding: 10px 20px;
+  // background-color: white;
+  // box-shadow: 5px 5px 20px 0 rgba(0,0,0,.2);
+  // border-radius: 8px;
 }
 
 .fa-times-circle {
@@ -173,7 +177,8 @@
 }
 
 .friend-content {
-  display: flex;
+  // display: flex;
+  display: inline-block;
   flex-direction: column;
   margin-left: 20px;
 }
