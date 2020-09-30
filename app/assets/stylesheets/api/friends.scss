@@ -1,12 +1,9 @@
-// Place all the styles related to the api/friends controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .more-friends-list {
   padding-top: 20px;
   display: flex;
   justify-content: left;
   margin: auto;
+  margin-top: 0;
   width: 900px;
   flex-wrap: wrap;
 }
@@ -15,6 +12,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: calc(100vh - 409px);
 }
 
 .checkout-friends-span {
@@ -41,11 +39,6 @@
   display: flex;
   justify-content: center;
 }
-
-// .search-container {
-//   display: flex;
-//   justify-content: center;
-// }
 
 .full-name-link {
   color: black;

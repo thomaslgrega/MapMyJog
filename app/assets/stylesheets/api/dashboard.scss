@@ -1,6 +1,12 @@
 .dashboard-container {
   width: 1300px;
   margin: 0 auto;
+  min-height: calc(100vh - 341px);
+}
+
+.dashboard-nav {
+  width: 1300px;
+  margin: 0 auto;
 }
 
 // .sliding-underline {
@@ -37,6 +43,8 @@
 }
 
 .table-header {
+  color: #f7f7f7;
+  background-color: #1d3557;
   padding-left: 25px;
   font-weight: 400;
 }
@@ -110,8 +118,14 @@
   width: 95%;
 }
 
+.routes-table-row {
+  // color: #f7f7f7;
+  background-color: #e8ecff;
+}
+
 .routes-table-row:hover {
-  background-color: rgb(231, 231, 231);
+  // background-color: rgb(231, 231, 231);
+  background-color: #bcc0cf;
 }
 
 .friends-content-container {
@@ -120,6 +134,7 @@
   flex-wrap: wrap;
   width: 900px;
   margin: auto;
+  min-height: calc(100vh - 409px);
 }
 
 .friend-index-logo {
@@ -139,6 +154,7 @@
   justify-content: left;
   min-width: 450px;
   margin-bottom: 30px;
+  height: 74px;
   // margin: 10px auto;
   // border: 1px darkgray solid;
   // padding: 10px 20px;
@@ -214,8 +230,15 @@ tr th {
   border: lightgray 1px solid;
 }
 
+.no-friends-message {
+  margin: 0 auto;
+  margin-top: 30px;
+  font-style: italic;
+}
+
 @media only screen and (max-width: 1300px) {
-  .dashboard-container {
+  .dashboard-container,
+  .dashboard-nav {
     width: 100%;
   }
 }

@@ -27,10 +27,12 @@ class FriendsIndex extends React.Component {
     }
 
     let comp;
-    if (this.props.friendships.length === 0) {
-      comp = <div className='friends-content-container'>
-        You have not added any friends yet. Click the Find Friends tab above to get started.
-      </div>
+    if (friendships.length === 0) {
+      comp = (
+        <div className='friends-content-container'>
+          <p className='no-friends-message'>You have not added any friends yet. Click the Find Friends tab above to get started.</p>
+        </div>
+      )
     } else {
       comp = <div className='friends-content-container'>
         {

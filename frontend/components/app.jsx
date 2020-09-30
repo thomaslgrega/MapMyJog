@@ -25,22 +25,21 @@ const App = () => {
         <Link to='/' className='nav-logo' onClick={clearSessionErrors}>MAPMYJOG</Link>
         <Route path='/' component={NavBarContainer} />
       </nav>
-      <div className='dashboard-container'>
-        <ProtectedRoute path='/dashboard' component={Dashboard} />
-        <ProtectedRoute path='/dashboard/routes' component={RoutesIndexContainer} />
-        <ProtectedRoute exact path='/dashboard/friends' component={FriendsIndexContainer} />
-        <ProtectedRoute path='/dashboard/friends/find' component={FindFriendsContainer} />
-      </div>
+      <ProtectedRoute path='/dashboard' component={Dashboard} />
+      <ProtectedRoute path='/dashboard/routes' component={RoutesIndexContainer} />
+      <ProtectedRoute exact path='/dashboard/friends' component={FriendsIndexContainer} />
+      <ProtectedRoute path='/dashboard/friends/find' component={FindFriendsContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
+      <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
+      <AuthRoute exact path='/' component={SplashContainer} />
       <Switch>
+        <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
         <ProtectedRoute path='/routes/new' component={RoutesCreateContainer} />
         <ProtectedRoute exact path='/routes/:routeId' component={RoutesShowContainer} />
+        <Route path='/' component={Footer} />
       </Switch>
-      <ProtectedRoute path='/users/:userId' component={UsersShowContainer} />
-      <ProtectedRoute path='/routes/:routeId/edit' component={RoutesEditContainer} />
-      <AuthRoute exact path='/' component={SplashContainer} />
-      <AuthRoute exact path='/' component={Footer} />
+      {/* <AuthRoute exact path='/' component={Footer} /> */}
     </div>
   )
 };

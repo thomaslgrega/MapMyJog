@@ -2,10 +2,9 @@
   padding-top: 85px;
   width: 300px;
   display: flex;
-  justify-content: center;
   margin: 0 auto;
   flex-direction: column;
-  display: relative;
+  min-height: calc(100vh - 393px);
 }
 
 .session-form {
