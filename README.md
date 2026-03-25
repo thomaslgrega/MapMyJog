@@ -2,7 +2,7 @@
 
 MapMyJog is a fitness app that takes advantage of the google maps and directions api to plot waypoints on a map and create a route. It also allows users to add descriptions and types of activities as well as see the distance of the route. Users can then save those routes, allowing them to edit or delete them at a later time. To add a social aspect, you can access a friends list and go to their profile and see their routes.
 
-## Live Link: https://tg-mapmyjog.herokuapp.com/
+## Live Link: https://tg-mapmyjog.herokuapp.com/ (Not currently live)
 
 ## Technologies Used
 ### Frontend
